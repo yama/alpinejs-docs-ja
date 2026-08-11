@@ -87,6 +87,7 @@ export default defineConfig({
         text: 'Advanced',
         items: [
           { text: 'CSP', link: '/advanced/csp' },
+          { text: 'Reactivity', link: '/advanced/reactivity' },
         ],
       },
     ],
