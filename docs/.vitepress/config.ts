@@ -66,6 +66,8 @@ export default defineConfig({
           { text: '$el', link: '/magics/el' },
           { text: '$refs', link: '/magics/refs' },
           { text: '$nextTick', link: '/magics/nextTick' },
+          { text: '$store', link: '/magics/store' },
+          { text: '$watch', link: '/magics/watch' },
           { text: '$root', link: '/magics/root' },
         ],
       },
