@@ -58,6 +58,7 @@ export default defineConfig({
           { text: 'Anchor', link: '/plugins/anchor' },
           { text: 'Collapse', link: '/plugins/collapse' },
           { text: 'Persist', link: '/plugins/persist' },
+          { text: 'Intersect', link: '/plugins/intersect' },
           { text: 'Resize', link: '/plugins/resize' },
         ],
       },
