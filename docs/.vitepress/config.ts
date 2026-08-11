@@ -29,8 +29,11 @@ export default defineConfig({
         text: 'Directives',
         items: [
           { text: 'x-data', link: '/directives/data' },
+          { text: 'x-show', link: '/directives/show' },
           { text: 'x-model', link: '/directives/model' },
           { text: 'x-on', link: '/directives/on' },
+          { text: 'x-text', link: '/directives/text' },
+          { text: 'x-effect', link: '/directives/effect' },
         ],
       },
     ],

@@ -90,7 +90,7 @@ Alpineではすべてが`x-data`ディレクティブから始まります。`x-
 
 明確でないかもしれませんが、ほとんどのディレクティブと同様に、`x-text`は引数として通常のJavaScript式を受け取ります。たとえば、代わりに`x-text="count * 2"`と設定すれば、`span`のテキストコンテンツは常に`count`の値の2倍になります。
 
-[→ `x-text`について詳しく読む](https://alpinejs.dev/directives/text)
+[→ `x-text`について詳しく読む](/directives/text)
 
 <a name="building-a-dropdown"></a>
 ## ドロップダウンを作る
@@ -120,7 +120,7 @@ Alpineではすべてが`x-data`ディレクティブから始まります。`x-
 
 `x-show`は、JavaScript式、この場合は`open`の結果に基づいて、ページ上のHTMLブロックを表示・非表示にできる非常に強力なディレクティブです。
 
-[→ `x-show`について詳しく読む](https://alpinejs.dev/directives/show)
+[→ `x-show`について詳しく読む](/directives/show)
 
 <a name="listening-for-a-click-outside"></a>
 ### 外側のクリックをリッスンする
