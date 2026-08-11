@@ -64,6 +64,7 @@ export default defineConfig({
         text: 'Magics',
         items: [
           { text: '$data', link: '/magics/data' },
+          { text: '$dispatch', link: '/magics/dispatch' },
           { text: '$id', link: '/magics/id' },
           { text: '$el', link: '/magics/el' },
           { text: '$refs', link: '/magics/refs' },
