@@ -21,6 +21,7 @@ export default defineConfig({
         text: 'Directives',
         items: [
           { text: 'x-model', link: '/directives/model' },
+          { text: 'x-on', link: '/directives/on' },
         ],
       },
     ],
