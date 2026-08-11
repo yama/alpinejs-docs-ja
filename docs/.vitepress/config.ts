@@ -52,6 +52,12 @@ export default defineConfig({
           { text: 'x-bind', link: '/directives/bind' },
         ],
       },
+      {
+        text: 'Plugins',
+        items: [
+          { text: 'Anchor', link: '/plugins/anchor' },
+        ],
+      },
     ],
     outline: 2,
     socialLinks: [
