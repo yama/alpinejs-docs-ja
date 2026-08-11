@@ -17,6 +17,12 @@ export default defineConfig({
           { text: 'インストール', link: '/essentials/installation' },
         ],
       },
+      {
+        text: 'Directives',
+        items: [
+          { text: 'x-model', link: '/directives/model' },
+        ],
+      },
     ],
     outline: 2,
     socialLinks: [
