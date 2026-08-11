@@ -42,6 +42,7 @@ export default defineConfig({
           { text: 'x-html', link: '/directives/html' },
           { text: 'x-if', link: '/directives/if' },
           { text: 'x-modelable', link: '/directives/modelable' },
+          { text: 'x-init', link: '/directives/init' },
         ],
       },
     ],
