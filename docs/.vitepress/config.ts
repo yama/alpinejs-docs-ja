@@ -26,6 +26,7 @@ export default defineConfig({
           { text: 'イベント', link: '/essentials/events' },
           { text: 'ライフサイクル', link: '/essentials/lifecycle' },
           { text: '状態', link: '/essentials/state' },
+          { text: 'テンプレート', link: '/essentials/templating' },
         ],
       },
       {
