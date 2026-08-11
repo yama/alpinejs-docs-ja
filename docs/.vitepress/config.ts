@@ -56,6 +56,7 @@ export default defineConfig({
         text: 'Plugins',
         items: [
           { text: 'Anchor', link: '/plugins/anchor' },
+          { text: 'Collapse', link: '/plugins/collapse' },
           { text: 'Resize', link: '/plugins/resize' },
         ],
       },
