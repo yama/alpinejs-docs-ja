@@ -62,6 +62,7 @@ export default defineConfig({
       {
         text: 'Magics',
         items: [
+          { text: '$data', link: '/magics/data' },
           { text: '$el', link: '/magics/el' },
           { text: '$refs', link: '/magics/refs' },
           { text: '$nextTick', link: '/magics/nextTick' },
@@ -71,6 +72,7 @@ export default defineConfig({
       {
         text: 'Globals',
         items: [
+          { text: 'Alpine.data', link: '/globals/alpine-data' },
           { text: 'Alpine.bind', link: '/globals/alpine-bind' },
         ],
       },
