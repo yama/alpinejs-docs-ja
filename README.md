@@ -12,7 +12,8 @@ Alpine.js公式ドキュメントの非公式日本語版です。
 - 用語集: `config/glossary.yml`
 - 公開基盤: VitePress
 - 翻訳済みページ: upstream/docsの56ページすべて（`docs/`に対応ファイルが存在）
-- OSS翻訳の共通ワークフロー候補: `notes/oss-docs-ja-workflow-v0.1.md`
+- OSS翻訳の共通ワークフロー候補（current）: `notes/oss-docs-ja-workflow-v0.2.md`
+- 旧版（history）: `notes/oss-docs-ja-workflow-v0.1.md`
 
 公式サイト固有の実行デモは、現時点では再現しません。
 
