@@ -56,6 +56,7 @@ export default defineConfig({
         text: 'Plugins',
         items: [
           { text: 'Anchor', link: '/plugins/anchor' },
+          { text: 'Resize', link: '/plugins/resize' },
         ],
       },
     ],
