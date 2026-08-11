@@ -59,6 +59,7 @@ export default defineConfig({
           { text: 'Collapse', link: '/plugins/collapse' },
           { text: 'Persist', link: '/plugins/persist' },
           { text: 'Intersect', link: '/plugins/intersect' },
+          { text: 'Mask', link: '/plugins/mask' },
           { text: 'Resize', link: '/plugins/resize' },
         ],
       },
