@@ -1,0 +1,8 @@
+# 翻訳で使う用語のSSOT。対象ページに必要な最小限のみ記載する。
+terms:
+  Alpine: Alpine
+  component: コンポーネント
+  module: モジュール
+  bundle: バンドル
+  modifier: modifier
+  directive: ディレクティブ
