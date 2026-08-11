@@ -45,11 +45,12 @@ v0.1の基本設計を維持し、Livewire日本語版とAlpine.js日本語版�
 - 取得元、対象ブランチ、基準状態を記録する。
 - ファイルの追加、削除、改名、移動を確認する。
 - 同期後に日本語訳へ影響するページを特定する。
+- どのupstream状態を比較基準としているか追跡可能にする。
 - upstream原文だけの更新と、日本語訳の更新を分ける。
 
 ### Project Adapter
 
-同期頻度、自動同期、変更PR、navigation変更、削除・改名の処理、基準位置の保存形式と更新条件を決める。基準位置は翻訳完了状態ではなく、比較基準の追跡情報として扱う。
+同期頻度、自動同期、変更PR、navigation変更、削除・改名の処理、基準位置の保存形式と更新条件を決める。基準位置が何を意味するか、いつ更新するか、翻訳完了やsnapshot取得・deployと連動するかはProject Adapterで定める。Common Coreでは、基準位置を比較基準の追跡情報として扱う。
 
 ## 3. AI実行ループ
 
@@ -61,7 +62,7 @@ AIは作業を単発で終了させず、次のループで継続する。
 
 ### 選択
 
-次のバッチを、repository、Git履歴、rules、glossary、workflow document、upstream referenceから復元する。対象範囲、既存変更、前回の確定状態を確認する。
+次のバッチを、repository、永続化された作業記録、rules、glossary、workflow document、upstream referenceから復元する。対象範囲、既存変更、前回の確定状態を確認する。
 
 ### 実行
 
@@ -69,11 +70,11 @@ Project Adapterの単位で翻訳、レビュー、必要なnavigation・index�
 
 ### 検証
 
-バッチの完了条件と停止条件を確認する。レビュー、`expected / reviewed / unreviewed`、構造・意味・リンク、build、diff check、Git状態を確認する。
+バッチの完了条件と停止条件を確認する。レビュー、`expected / reviewed / unreviewed`、構造・意味・リンク、build、diff check、永続化された状態を確認する。
 
 ### 確定
 
-バッチをcommit / pushし、次セッションから復元できる状態にする。チェックポイントは頻繁に作るが、チェックポイントを作ったこと自体を停止理由にしない。
+現在のバッチを、次回復元可能な永続チェックポイントとして確定する。Gitを使うプロジェクトではcommit / pushが実装例になる。チェックポイントは頻繁に作るが、チェックポイントを作ったこと自体を停止理由にしない。
 
 ### 次へ
 
@@ -87,11 +88,11 @@ Project Adapterの単位で翻訳、レビュー、必要なnavigation・index�
 - レビュー対象が確認済みである。
 - `unreviewed = 0`である。
 - Adapterで定めたbuild・diff checkが成功している。
-- commit / push後のGit状態が復元可能である。
+- 確定済み状態が永続化され、次回そこから安全に復元可能である。
 
 ### 完了条件
 
-各バッチの具体的な完了条件はProject Adapterで定める。Alpineで機能した例は、対象ページのレビュー完了、`unreviewed = 0`、build成功、diff check成功、commit / push済みである。これらは全OSS共通のコマンドを意味しない。
+各バッチの具体的な完了条件はProject Adapterで定める。Alpineで機能した例は、対象ページのレビュー完了、`unreviewed = 0`、build成功、diff check成功、commit / push済みである。これはGitを使う場合の実装例であり、全OSS共通の必須動作やコマンドを意味しない。
 
 ### 停止条件
 
@@ -99,7 +100,7 @@ AIだけで安全に継続できない場合は、現在バッチを可能な範
 
 - 既存ルールでは判断できない新仕様。
 - review未完了、または判断保留が残る。
-- build、diff check、リンク、Git操作の失敗。
+- build、diff check、リンク、永続化や必要な状態管理の失敗。
 - upstreamの重大変更、対象範囲の再定義、MVP方針との衝突。
 - 認証、秘密情報、外部権限など人間判断が必要な状態。
 - 実際のコンテキスト限界により、レビュー精度・指示保持・安全性が低下する状態。
@@ -241,13 +242,13 @@ upstream更新にもAI実行ループを適用する。
 
 新規翻訳ループと全く同一にする必要はない。Commonなのは差分、影響、レビュー、完了確認、公開確認という責務であり、具体的な同期方法・PR・基準位置更新はProject Adapterに残す。
 
-差分更新では、変更行だけでなく前後の条件・例外・制約、コードと説明、周辺リンク・表・Calloutを確認する。必要な翻訳、`unreviewed = 0`、build、公開確認が完了するまでupstream基準位置を完了状態として更新しない。
+差分更新では、変更行だけでなく前後の条件・例外・制約、コードと説明、周辺リンク・表・Calloutを確認する。基準位置の意味と更新条件はProject Adapterに従い、Common Coreでは比較基準を追跡可能な状態に保つ。
 
 ## 11. 状態のSSOTとチェックポイント
 
-チャット履歴に依存せず、repository、Git履歴、rules、glossary、workflow document、upstream referenceから次のセッションが作業状態を復元できるようにする。
+チャット履歴に依存せず、repository、永続化された作業記録、rules、glossary、workflow document、upstream referenceから次のセッションが作業状態を復元できるようにする。
 
-review、build、commit、pushなどで再開可能なチェックポイントを頻繁に作る。ただし、安全なチェックポイント作成とチェックポイントごとの早期終了は同じではない。正常ならそのまま次のバッチへ進む。
+review、build、永続化などで再開可能なチェックポイントを頻繁に作る。Gitを使う場合はcommit / pushがその実装例になる。ただし、安全なチェックポイント作成とチェックポイントごとの早期終了は同じではない。正常ならそのまま次のバッチへ進む。
 
 ## 12. 自動化と保留事項
 
