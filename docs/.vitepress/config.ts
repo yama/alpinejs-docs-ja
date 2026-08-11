@@ -45,6 +45,7 @@ export default defineConfig({
           { text: 'x-init', link: '/directives/init' },
           { text: 'x-teleport', link: '/directives/teleport' },
           { text: 'x-transition', link: '/directives/transition' },
+          { text: 'x-bind', link: '/directives/bind' },
         ],
       },
     ],
