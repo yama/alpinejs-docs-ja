@@ -8,10 +8,17 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'ホーム', link: '/' },
+      { text: 'Start Here', link: '/start-here' },
       { text: 'Essentials', link: '/essentials/installation' },
       { text: 'Directives', link: '/directives/data' },
     ],
     sidebar: [
+      {
+        text: 'はじめに',
+        items: [
+          { text: 'ここから始める', link: '/start-here' },
+        ],
+      },
       {
         text: 'Essentials',
         items: [

@@ -6,8 +6,9 @@ title: ホーム
 
 Alpine.js公式ドキュメントの非公式日本語版です。
 
-現在は、インストール方法、`x-data`、`x-model`、`x-on` のページを公開しています。
+現在は、導入ガイド、インストール方法、`x-data`、`x-model`、`x-on` のページを公開しています。
 
+- [ここから始める](/start-here)
 - [インストール](/essentials/installation)
 - [`x-data`](/directives/data)
 - [`x-model`](/directives/model)
