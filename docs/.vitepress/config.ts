@@ -59,6 +59,21 @@ export default defineConfig({
           { text: 'Resize', link: '/plugins/resize' },
         ],
       },
+      {
+        text: 'Magics',
+        items: [
+          { text: '$el', link: '/magics/el' },
+          { text: '$refs', link: '/magics/refs' },
+          { text: '$nextTick', link: '/magics/nextTick' },
+          { text: '$root', link: '/magics/root' },
+        ],
+      },
+      {
+        text: 'Globals',
+        items: [
+          { text: 'Alpine.bind', link: '/globals/alpine-bind' },
+        ],
+      },
     ],
     outline: 2,
     socialLinks: [
