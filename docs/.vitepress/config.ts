@@ -44,6 +44,7 @@ export default defineConfig({
           { text: 'x-modelable', link: '/directives/modelable' },
           { text: 'x-init', link: '/directives/init' },
           { text: 'x-teleport', link: '/directives/teleport' },
+          { text: 'x-transition', link: '/directives/transition' },
         ],
       },
     ],
