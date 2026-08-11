@@ -43,6 +43,7 @@ export default defineConfig({
           { text: 'x-if', link: '/directives/if' },
           { text: 'x-modelable', link: '/directives/modelable' },
           { text: 'x-init', link: '/directives/init' },
+          { text: 'x-teleport', link: '/directives/teleport' },
         ],
       },
     ],
