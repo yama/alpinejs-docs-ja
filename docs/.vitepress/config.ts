@@ -33,6 +33,7 @@ export default defineConfig({
           { text: 'x-model', link: '/directives/model' },
           { text: 'x-on', link: '/directives/on' },
           { text: 'x-text', link: '/directives/text' },
+          { text: 'x-for', link: '/directives/for' },
           { text: 'x-effect', link: '/directives/effect' },
         ],
       },

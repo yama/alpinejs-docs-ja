@@ -255,7 +255,7 @@ Alpineは「リアクティブ」なフレームワークです。そのため�
 
 これで、`<template>`タグ内の要素は`filteredItems`内の各項目について繰り返され、ループ内で評価されるすべての式から反復変数（この場合は`item`）へ直接アクセスできるようになります。
 
-[→ `x-for`について詳しく読む](https://alpinejs.dev/directives/for)
+[→ `x-for`について詳しく読む](/directives/for)
 
 <a name="recap"></a>
 ## まとめ

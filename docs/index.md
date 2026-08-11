@@ -16,3 +16,4 @@ Alpine.js公式ドキュメントの非公式日本語版です。
 - [`x-show`](/directives/show)
 - [`x-text`](/directives/text)
 - [`x-effect`](/directives/effect)
+- [`x-for`](/directives/for)
