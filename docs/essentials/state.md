@@ -95,7 +95,7 @@ Alpine.data('dropdown', () => ({
 </div>
 ```
 
-[→ `Alpine.data()`の使い方を詳しく読む](https://alpinejs.dev/globals/alpine-data)
+[→ `Alpine.data()`の使い方を詳しく読む](/globals/alpine-data)
 
 <a name="global-state"></a>
 ## グローバル状態
@@ -130,4 +130,4 @@ Alpine.store('tabs', {
 </div>
 ```
 
-[→ `Alpine.store()`について詳しく読む](https://alpinejs.dev/globals/alpine-store)
+[→ `Alpine.store()`について詳しく読む](/globals/alpine-store)

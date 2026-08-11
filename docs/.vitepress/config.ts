@@ -22,6 +22,7 @@ export default defineConfig({
       {
         text: 'Essentials',
         items: [
+          { text: 'Essentials', link: '/essentials' },
           { text: 'インストール', link: '/essentials/installation' },
           { text: 'イベント', link: '/essentials/events' },
           { text: 'ライフサイクル', link: '/essentials/lifecycle' },
@@ -32,6 +33,7 @@ export default defineConfig({
       {
         text: 'Directives',
         items: [
+          { text: 'Directives', link: '/directives' },
           { text: 'x-data', link: '/directives/data' },
           { text: 'x-show', link: '/directives/show' },
           { text: 'x-model', link: '/directives/model' },
@@ -55,17 +57,22 @@ export default defineConfig({
       {
         text: 'Plugins',
         items: [
+          { text: 'Plugins', link: '/plugins' },
           { text: 'Anchor', link: '/plugins/anchor' },
           { text: 'Collapse', link: '/plugins/collapse' },
           { text: 'Persist', link: '/plugins/persist' },
           { text: 'Intersect', link: '/plugins/intersect' },
           { text: 'Mask', link: '/plugins/mask' },
           { text: 'Resize', link: '/plugins/resize' },
+          { text: 'Focus', link: '/plugins/focus' },
+          { text: 'Morph', link: '/plugins/morph' },
+          { text: 'Sort', link: '/plugins/sort' },
         ],
       },
       {
         text: 'Magics',
         items: [
+          { text: 'Magics', link: '/magics' },
           { text: '$data', link: '/magics/data' },
           { text: '$dispatch', link: '/magics/dispatch' },
           { text: '$id', link: '/magics/id' },
@@ -80,6 +87,7 @@ export default defineConfig({
       {
         text: 'Globals',
         items: [
+          { text: 'Globals', link: '/globals' },
           { text: 'Alpine.data', link: '/globals/alpine-data' },
           { text: 'Alpine.bind', link: '/globals/alpine-bind' },
           { text: 'Alpine.store', link: '/globals/alpine-store' },
@@ -88,8 +96,11 @@ export default defineConfig({
       {
         text: 'Advanced',
         items: [
+          { text: 'Advanced', link: '/advanced' },
           { text: 'CSP', link: '/advanced/csp' },
           { text: 'Reactivity', link: '/advanced/reactivity' },
+          { text: '拡張', link: '/advanced/extending' },
+          { text: 'V2からのアップグレード', link: '/upgrade-guide' },
         ],
       },
     ],

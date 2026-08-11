@@ -42,7 +42,7 @@ Alpineでは、データ（状態）が変化したときにコードを実行�
 
 上の例のように、`$watch`ではドット記法のキーを使ってデータの変更にフックできます。そのデータが変化すると、Alpineが渡されたコールバックを呼び出し、新しい値と変更前の古い値を渡します。
 
-[→ `$watch`について詳しく読む](https://alpinejs.dev/magics/watch)
+[→ `$watch`について詳しく読む](/magics/watch)
 
 <a name="x-effect"></a>
 ### `x-effect`

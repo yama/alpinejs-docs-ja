@@ -6,7 +6,7 @@ title: store
 
 # $store
 
-[`Alpine.store(...)`](https://alpinejs.dev/globals/alpine-store)で登録したAlpineのグローバルストアへ、`$store`を使って簡単にアクセスできます。たとえば次のようにします。
+[`Alpine.store(...)`](/globals/alpine-store)で登録したAlpineのグローバルストアへ、`$store`を使って簡単にアクセスできます。たとえば次のようにします。
 
 ```html
 <button x-data @click="$store.darkMode.toggle()">Toggle Dark Mode</button>
@@ -57,4 +57,4 @@ title: store
 </script>
 ```
 
-[→ Alpineストアについて詳しく読む](https://alpinejs.dev/globals/alpine-store)
+[→ Alpineストアについて詳しく読む](/globals/alpine-store)

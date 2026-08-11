@@ -68,4 +68,4 @@ Alpine.start()
 > `Alpine.start()`はページごとに一度だけ呼び出してください。複数回呼び出すと、Alpineの複数の「インスタンス」が同時に実行されます。
 
 
-[→ Alpineの拡張について詳しく読む](https://alpinejs.dev/advanced/extending)
+[→ Alpineの拡張について詳しく読む](/advanced/extending)

@@ -167,4 +167,4 @@ Alpineコンポーネントを作成したいものの、データが必要な�
 </script>
 ```
 
-[→ `Alpine.data(...)`について詳しく読む](https://alpinejs.dev/globals/alpine-data)
+[→ `Alpine.data(...)`について詳しく読む](/globals/alpine-data)

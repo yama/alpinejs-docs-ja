@@ -6,7 +6,7 @@ title: ホーム
 
 Alpine.js公式ドキュメントの非公式日本語版です。
 
-現在は、導入ガイド、インストール方法、`x-data`、`x-model`、`x-on` のページを公開しています。
+upstreamの翻訳対象56ページを公開しています。公式サイト固有の実行デモはMVP対象外です。
 
 - [ここから始める](/start-here)
 - [インストール](/essentials/installation)

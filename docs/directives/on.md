@@ -13,7 +13,7 @@ title: on
 <button x-on:click="alert('Hello World!')">Say Hi</button>
 ```
 
-> `x-on`は小文字のイベント名だけを監視できます。HTML属性では大文字と小文字が区別されないためです。`x-on:CLICK`と記述すると、`click`という名前のイベントを監視します。camelCaseの名前を持つカスタムイベントを監視する必要がある場合は、[`.camel` helper](#camel)を使ってこの制限を回避できます。また、[`x-bind`](https://alpinejs.dev/directives/bind#bind-directives)を使ってJavaScriptコード内で要素に`x-on`ディレクティブを付ければ、（大文字と小文字が保持されるため）別の方法で対応できます。
+> `x-on`は小文字のイベント名だけを監視できます。HTML属性では大文字と小文字が区別されないためです。`x-on:CLICK`と記述すると、`click`という名前のイベントを監視します。camelCaseの名前を持つカスタムイベントを監視する必要がある場合は、[`.camel` helper](#camel)を使ってこの制限を回避できます。また、[`x-bind`](/directives/bind#bind-directives)を使ってJavaScriptコード内で要素に`x-on`ディレクティブを付ければ、（大文字と小文字が保持されるため）別の方法で対応できます。
 
 <a name="shorthand-syntax"></a>
 ## 短縮構文
@@ -26,7 +26,7 @@ title: on
 <button @click="alert('Hello World!')">Say Hi</button>
 ```
 
-> 上のスニペットには含まれていませんが、親要素に`x-data`が定義されていない場合、`x-on`は使用できません。[→ `x-data`について詳しく読む](https://alpinejs.dev/directives/data)
+> 上のスニペットには含まれていませんが、親要素に`x-data`が定義されていない場合、`x-on`は使用できません。[→ `x-data`について詳しく読む](/directives/data)
 
 <a name="the-event-object"></a>
 ## イベントオブジェクト
@@ -148,7 +148,7 @@ Alpineのイベントリスナーは、ネイティブのDOMイベントリス�
 </div>
 ```
 
-[→ `$dispatch`について詳しく読む](https://alpinejs.dev/magics/dispatch)
+[→ `$dispatch`について詳しく読む](/magics/dispatch)
 
 <a name="modifiers"></a>
 ## Modifier

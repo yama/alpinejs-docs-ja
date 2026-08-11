@@ -21,12 +21,12 @@ title: show
 
 「Toggle Dropdown」ボタンをクリックすると、それに応じてドロップダウンが表示・非表示になります。
 
-> ページ読み込み時の`x-show`の「デフォルト」状態が`false`の場合、ページの「ちらつき」を避けるために`x-cloak`を使うとよいでしょう。これは、Alpineの初期化と非表示処理が完了する前にブラウザーがコンテンツを描画すると発生する現象です。`x-cloak`については[ドキュメント](https://alpinejs.dev/directives/cloak)で詳しく説明しています。
+> ページ読み込み時の`x-show`の「デフォルト」状態が`false`の場合、ページの「ちらつき」を避けるために`x-cloak`を使うとよいでしょう。これは、Alpineの初期化と非表示処理が完了する前にブラウザーがコンテンツを描画すると発生する現象です。`x-cloak`については[ドキュメント](/directives/cloak)で詳しく説明しています。
 
 <a name="with-transitions"></a>
 ## transitionを使う
 
-`x-show`の動作に滑らかなtransitionを適用したい場合は、`x-transition`と組み合わせて使えます。このディレクティブについては[こちら](https://alpinejs.dev/directives/transition)で詳しく説明していますが、ここでは上と同じコンポーネントにtransitionを適用した簡単な例を示します。
+`x-show`の動作に滑らかなtransitionを適用したい場合は、`x-transition`と組み合わせて使えます。このディレクティブについては[こちら](/directives/transition)で詳しく説明していますが、ここでは上と同じコンポーネントにtransitionを適用した簡単な例を示します。
 
 ```html
 <div x-data="{ open: false }">

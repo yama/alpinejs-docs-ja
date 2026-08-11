@@ -133,7 +133,7 @@ Alpineではすべてが`x-data`ディレクティブから始まります。`x-
 
 Alpineに組み込まれた便利なヘルパーで、よくある要件を手作業で実装する面倒さと複雑さを解消します。
 
-[→ `x-on`のmodifierについて詳しく読む](https://alpinejs.dev/directives/on#modifiers)
+[→ `x-on`のmodifierについて詳しく読む](/directives/on#modifiers)
 
 <a name="building-a-search-input"></a>
 ## 検索入力を作る

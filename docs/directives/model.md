@@ -51,7 +51,7 @@ title: model
 <span x-text="message"></span>
 ```
 
-> 上のスニペットには含まれていませんが、親要素に`x-data`が定義されていない場合、`x-model`は使用できません。[→ `x-data`について詳しく読む](https://alpinejs.dev/directives/data)
+> 上のスニペットには含まれていませんが、親要素に`x-data`が定義されていない場合、`x-model`は使用できません。[→ `x-data`について詳しく読む](/directives/data)
 
 <a name="textarea-inputs"></a>
 ## テキストエリア入力
