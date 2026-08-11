@@ -11,7 +11,7 @@ Alpine.js公式ドキュメントの非公式日本語版です。
 - 翻訳ルール: `config/translation-rules.md`
 - 用語集: `config/glossary.yml`
 - 公開基盤: VitePress
-- 現在の翻訳済みページ: `essentials/installation.md`, `directives/model.md`, `directives/on.md`
+- 現在の翻訳済みページ: `essentials/installation.md`, `directives/data.md`, `directives/model.md`, `directives/on.md`
 - OSS翻訳の共通ワークフロー候補: `notes/oss-docs-ja-workflow-v0.1.md`
 
 公式サイト固有の実行デモは、現時点では再現しません。

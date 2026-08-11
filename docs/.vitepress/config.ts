@@ -9,6 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'ホーム', link: '/' },
       { text: 'Essentials', link: '/essentials/installation' },
+      { text: 'Directives', link: '/directives/data' },
     ],
     sidebar: [
       {
@@ -20,6 +21,7 @@ export default defineConfig({
       {
         text: 'Directives',
         items: [
+          { text: 'x-data', link: '/directives/data' },
           { text: 'x-model', link: '/directives/model' },
           { text: 'x-on', link: '/directives/on' },
         ],

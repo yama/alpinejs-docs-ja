@@ -1,6 +1,6 @@
 # 翻訳ルール
 
-このファイルを翻訳方針のSSOTとする。現在は `essentials/installation.md`、`directives/model.md`、`directives/on.md` に必要な範囲を定義する。
+このファイルを翻訳方針のSSOTとする。現在は `essentials/installation.md`、`directives/data.md`、`directives/model.md`、`directives/on.md` に必要な範囲を定義する。
 
 ## 同期位置と翻訳済み範囲
 
