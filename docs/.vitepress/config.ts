@@ -83,6 +83,12 @@ export default defineConfig({
           { text: 'Alpine.store', link: '/globals/alpine-store' },
         ],
       },
+      {
+        text: 'Advanced',
+        items: [
+          { text: 'CSP', link: '/advanced/csp' },
+        ],
+      },
     ],
     outline: 2,
     socialLinks: [
