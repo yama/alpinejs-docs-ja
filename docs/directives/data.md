@@ -11,7 +11,7 @@ Alpineのすべては`x-data`ディレクティブから始まります。
 
 次は、単純なドロップダウンコンポーネントの例です。
 
-```alpine
+```html
 <div x-data="{ open: false }">
     <button @click="open = ! open">Toggle Content</button>
 
@@ -30,7 +30,7 @@ Alpineのすべては`x-data`ディレクティブから始まります。
 
 たとえば、次のようになります。
 
-```alpine
+```html
 <div x-data="{ foo: 'bar' }">
     <span x-text="foo"><!-- Will output: "bar" --></span>
 
@@ -51,7 +51,7 @@ Alpineのすべては`x-data`ディレクティブから始まります。
 
 たとえば、「Toggle Content」の動作を`x-data`のメソッドへ取り出してみましょう。
 
-```alpine
+```html
 <div x-data="{ open: false, toggle() { this.open = ! this.open } }">
     <button @click="toggle()">Toggle Content</button>
 
@@ -67,7 +67,7 @@ Alpineのすべては`x-data`ディレクティブから始まります。
 
 必要であれば、`toggle`メソッドを呼び出すときの括弧を完全に省略することもできます。たとえば、次のようになります。
 
-```alpine
+```html
 <!-- Before -->
 <button @click="toggle()">...</button>
 
@@ -84,7 +84,7 @@ getterは「算出プロパティ」のようなものだと考えられます�
 
 `open`へ直接アクセスする代わりに、`isOpen`というgetterを使うようコンポーネントを変更してみましょう。
 
-```alpine
+```html
 <div x-data="{
     open: false,
     get isOpen() { return this.open },
@@ -109,13 +109,13 @@ Alpineコンポーネントを作成したいものの、データが必要な�
 
 この場合は、空のオブジェクトを渡せます。
 
-```alpine
+```html
 <div x-data="{}">
 ```
 
 ただし、見た目がよくなる場合は、属性値全体を省略することもできます。
 
-```alpine
+```html
 <div x-data>
 ```
 
@@ -124,7 +124,7 @@ Alpineコンポーネントを作成したいものの、データが必要な�
 
 次のように、Alpineコンポーネント内に要素が1つしかない場合があります。
 
-```alpine
+```html
 <div x-data="{ open: true }">
     <button @click="open = false" x-show="open">Hide Me</button>
 </div>
@@ -132,7 +132,7 @@ Alpineコンポーネントを作成したいものの、データが必要な�
 
 この場合は、次のようにその単一要素へ直接`x-data`を指定できます。
 
-```alpine
+```html
 <button x-data="{ open: true }" @click="open = false" x-show="open">
     Hide Me
 </button>
@@ -145,7 +145,7 @@ Alpineコンポーネントを作成したいものの、データが必要な�
 
 簡単な例を見てみましょう。
 
-```alpine
+```html
 <div x-data="dropdown">
     <button @click="toggle">Toggle Content</button>
 
