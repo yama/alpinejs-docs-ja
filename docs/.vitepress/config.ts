@@ -23,6 +23,8 @@ export default defineConfig({
         text: 'Essentials',
         items: [
           { text: 'インストール', link: '/essentials/installation' },
+          { text: 'イベント', link: '/essentials/events' },
+          { text: 'ライフサイクル', link: '/essentials/lifecycle' },
         ],
       },
       {
