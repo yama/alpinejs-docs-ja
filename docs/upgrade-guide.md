@@ -89,6 +89,17 @@ transitionを使う要素は`x-show`で管理してください。
 
 `x-data`のスコープは、ネストした`x-data`で上書きされない限り、すべての子で利用できます。
 
+```html
+<!-- V2 -->
+<div x-data="{ foo: 'bar' }">
+    <div x-data="{}"><!-- foo is undefined --></div>
+</div>
+<!-- V3 -->
+<div x-data="{ foo: 'bar' }">
+    <div x-data="{}"><!-- foo is 'bar' --></div>
+</div>
+```
+
 <a name="x-init-no-callback"></a>
 ### `x-init`はcallback returnを受け付けない
 
@@ -108,6 +119,17 @@ V3では`false`をreturnしてもイベントは抑止されません。必要�
 
 [→ x-onについて詳しく読む](/directives/on)
 
+```html
+<!-- V2 -->
+<div x-data="{ blockInput() { return false } }">
+    <input type="text" @input="blockInput()">
+</div>
+<!-- V3 -->
+<div x-data="{ blockInput(e) { e.preventDefault() } }">
+    <input type="text" @input="blockInput($event)">
+</div>
+```
+
 <a name="x-spread-now-x-bind"></a>
 ### `x-spread`は`x-bind`
 
@@ -125,25 +147,58 @@ V3では`false`をreturnしてもイベントは抑止されません。必要�
 
 拡張コードは`alpine:init`イベント内で登録します。
 
+```html
+<!-- V2 -->
+<script>window.deferLoadingAlpine = startAlpine => { startAlpine() }</script>
+<!-- V3 -->
+<script>
+document.addEventListener('alpine:init', () => {
+    // Alpine初期化の前に実行される
+})
+document.addEventListener('alpine:initialized', () => {
+    // Alpine初期化の後に実行される
+})
+</script>
+```
+
+[→ Alpineのライフサイクルイベントについて詳しく読む](/essentials/lifecycle#alpine-initialization)
+
 <a name="x-ref-no-more-dynamic"></a>
 ### `x-ref`はbindingをサポートしない
 
 `x-ref`の値を動的にbindingすることはできません。必要に応じて通常のデータプロパティや`$el`を利用してください。
+
+V2では次のコードを使うと、ボタンをクリックしたときすべての`$refs`が表示されました。V3では静的に作られた要素の`$refs`だけを取得できるため、最初のrefだけが返されます。
+
+```html
+<div x-data="{ options: [{value: 1}, {value: 2}, {value: 3}] }">
+    <div x-ref="0">0</div>
+    <template x-for="option in options">
+        <div :x-ref="option.value" x-text="option.value"></div>
+    </template>
+    <button @click="console.log($refs[0], $refs[1], $refs[2], $refs[3])">Display $refs</button>
+</div>
+```
 
 <a name="no-ie-11"></a>
 ### IE11はサポートされない
 
 Alpine V3はIE11をサポートしません。
 
-<a name="deprecated-apis"></a>
 ## 非推奨API
 
 <a name="away-replace-with-outside"></a>
 ### `.away`は`.outside`へ置き換える
 
 ```html
-<!-- V2 --> <div @click.away="open = false"></div>
-<!-- V3 --> <div @click.outside="open = false"></div>
+<!-- V2 -->
+<div x-show="open" @click.away="open = false">
+    ...
+</div>
+<!-- V3 -->
+<div x-show="open" @click.outside="open = false">
+    ...
+</div>
 ```
 
 <a name="alpine-data-instead-of-global-functions"></a>
@@ -152,5 +207,27 @@ Alpine V3はIE11をサポートしません。
 グローバル関数を`x-data`へ渡す代わりに、`Alpine.data()`で再利用可能なデータプロバイダーを登録します。
 
 ```html
-<div x-data="dropdown">...</div>
+<!-- V2 -->
+<div x-data="dropdown()">
+    ...
+</div>
+
+<script>
+    function dropdown() {
+        return { ... }
+    }
+</script>
+
+<!-- V3 -->
+<div x-data="dropdown">
+    ...
+</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({ ... }))
+    })
+</script>
 ```
+
+`Alpine.data()`拡張は`Alpine.start()`より前に定義する必要があります。[ライフサイクルに関する注意](/advanced/extending#lifecycle-concerns)と[モジュールとしてのインストール](/essentials/installation#as-a-module)も参照してください。

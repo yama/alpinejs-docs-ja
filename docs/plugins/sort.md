@@ -62,17 +62,35 @@ Alpine.plugin(sort)
 
 ハンドラーでは`$item`（移動した項目のキー）と`$position`（新しい位置）を利用できます。
 
+ハンドラーを`x-data`内の関数として定義することもできます。
+
+```html
+<div x-data="{ handle: (item, position) => { ... } }">
+    <ul x-sort="handle">
+        <li x-sort:item="1">foo</li>
+        <li x-sort:item="2">bar</li>
+        <li x-sort:item="3">baz</li>
+    </ul>
+</div>
+```
+
 <a name="sorting-groups"></a>
 ## グループの並べ替え
 
-複数のリストを同じグループにすると、項目をリスト間で移動できます。`x-sort="group"`のように同じグループ名を指定してください。
+複数のリストを同じグループにすると、項目をリスト間で移動できます。`x-sort:group`に同じグループ名を指定してください。
 
 ```html
-<div x-sort="kanban">
-    <div x-sort:item="todo-1">対応待ち</div>
-</div>
-<div x-sort="kanban">
-    <div x-sort:item="done-1">完了</div>
+<div>
+    <ul x-sort x-sort:group="todos">
+        <li x-sort:item="1">foo</li>
+        <li x-sort:item="2">bar</li>
+        <li x-sort:item="3">baz</li>
+    </ul>
+    <ol x-sort x-sort:group="todos">
+        <li x-sort:item="4">foo</li>
+        <li x-sort:item="5">bar</li>
+        <li x-sort:item="6">baz</li>
+    </ol>
 </div>
 ```
 
@@ -83,10 +101,9 @@ Alpine.plugin(sort)
 
 ```html
 <ul x-sort>
-    <li x-sort:item>
-        <span x-sort:handle class="cursor-move">☷</span>
-        項目
-    </li>
+    <li x-sort:item><span x-sort:handle> - </span>foo</li>
+    <li x-sort:item><span x-sort:handle> - </span>bar</li>
+    <li x-sort:item><span x-sort:handle> - </span>baz</li>
 </ul>
 ```
 
@@ -95,10 +112,20 @@ Alpine.plugin(sort)
 
 項目内のボタンや入力からドラッグを開始したくない場合は、`x-sort:ignore`を追加します。要素は通常どおり動作しますが、ドラッグ操作からは除外されます。
 
+同じ指定を複数の項目へ適用できます。
+
 ```html
 <ul x-sort>
     <li x-sort:item>
-        項目
+        <!-- ... -->
+        <button x-sort:ignore>編集</button>
+    </li>
+    <li x-sort:item>
+        <!-- ... -->
+        <button x-sort:ignore>編集</button>
+    </li>
+    <li x-sort:item>
+        <!-- ... -->
         <button x-sort:ignore>編集</button>
     </li>
 </ul>
@@ -124,6 +151,11 @@ Alpine.plugin(sort)
 
 ```html
 <style>.sortable-ghost { opacity: .5 !important; }</style>
+<ul x-sort.ghost>
+    <li x-sort:item>foo</li>
+    <li x-sort:item>bar</li>
+    <li x-sort:item>baz</li>
+</ul>
 ```
 
 <a name="sorting-class"></a>
@@ -131,18 +163,43 @@ Alpine.plugin(sort)
 
 ドラッグ中は`body`に`.sortable-drag`クラスが付与されます。このクラスを使って、ドラッグ中だけページ全体のスタイルを変更できます。
 
+```html
+<div id="sort-warning">並べ替え中はページ機能が制限されます</div>
+```
+
+```css
+#sort-warning { display: none; }
+body.sorting #sort-warning { display: block; }
+```
+
 <a name="css-hover-bug"></a>
 ## CSSのhoverに関する問題
 
 ドラッグ中にCSSの`:hover`スタイルが意図せず適用されるブラウザーでは、`x-sort`に`.disable`を指定して必要なスタイルを無効化するか、ドラッグ中のクラスを使って調整してください。
 
+```html
+<div x-sort>
+    <div x-sort:item class="hover:border">foo</div>
+    <div x-sort:item class="hover:border">bar</div>
+    <div x-sort:item class="hover:border">baz</div>
+</div>
+```
+
+```html
+<div x-sort>
+    <div x-sort:item class="[body:not(.sorting)_&]:hover:border">foo</div>
+    <div x-sort:item class="[body:not(.sorting)_&]:hover:border">bar</div>
+    <div x-sort:item class="[body:not(.sorting)_&]:hover:border">baz</div>
+</div>
+```
+
 <a name="custom-configuration"></a>
 ## カスタム設定
 
-`x-sort`へ設定オブジェクトを渡すことで、SortableJSの設定をカスタマイズできます。たとえばアニメーション時間やドラッグ開始までの遅延を設定できます。
+`x-sort:config`へ設定オブジェクトを渡すことで、SortableJSの設定をカスタマイズできます。たとえばアニメーション時間を設定できます。
 
 ```html
-<ul x-sort="{ animation: 150, delay: 100 }">
+<ul x-sort x-sort:config="{ animation: 0 }">
     <li x-sort:item>foo</li>
     <li x-sort:item>bar</li>
 </ul>

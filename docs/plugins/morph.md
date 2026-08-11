@@ -52,6 +52,8 @@ Alpine.plugin(morph)
 | `newHtml` | 要素のモーフィング先テンプレートとして使うHTML文字列 |
 | `options`（任意） | 主に[ライフサイクルフック](#lifecycle-hooks)を注入するためのオプションオブジェクト |
 
+実際のアプリケーションでは、この新しいHTMLはサーバーから返されることが多いでしょう。
+
 ```html
 <div x-data="{ message: '変更してからボタンを押してください' }">
     <input type="text" x-model="message">
@@ -72,6 +74,8 @@ document.querySelector('button').addEventListener('click', () => {
 })
 </script>
 ```
+
+モーフィングは現在のDOMと新しいHTMLを比較し、新しい要素を追加しながら、既存コンポーネントの状態を保持します。
 
 <a name="lifecycle-hooks"></a>
 ### ライフサイクルフック
@@ -120,6 +124,28 @@ DOM差分ユーティリティは元のDOMを新しいHTMLへ正確にモーフ�
 
 特にループ内の兄弟要素のリストで役立ちます。
 
+キーを使うと両方のツリーで要素を対応付け、`<ul>`内で要素を移動できます。`key:`設定オプションでキーの判定方法を変更できます。
+
+キーがない場合、Morphは次の変更を「各`li`の内容が変わった」と解釈します。
+
+```html
+<!-- ページ上のlive DOM -->
+<ul>
+    <li>Mark</li>
+    <li>Tom</li>
+    <li>Travis</li>
+</ul>
+
+<!-- モーフィング先 -->
+<ul>
+    <li>Travis</li>
+    <li>Mark</li>
+    <li>Tom</li>
+</ul>
+```
+
+キーを付けると、元の要素を保持して順序だけを移動できます。
+
 ```html
 <!-- ページ上のlive DOM -->
 <ul>
@@ -127,6 +153,7 @@ DOM差分ユーティリティは元のDOMを新しいHTMLへ正確にモーフ�
     <li key="2">Tom</li>
     <li key="3">Travis</li>
 </ul>
+
 <!-- モーフィング先 -->
 <ul>
     <li key="3">Travis</li>
@@ -135,8 +162,6 @@ DOM差分ユーティリティは元のDOMを新しいHTMLへ正確にモーフ�
 </ul>
 ```
 
-キーを使うと両方のツリーで要素を対応付け、`<ul>`内で要素を移動できます。`key:`設定オプションでキーの判定方法を変更できます。
-
 <a name="alpine-morph-between"></a>
 ## Alpine.morphBetween()
 
@@ -144,7 +169,7 @@ DOM差分ユーティリティは元のDOMを新しいHTMLへ正確にモーフ�
 
 | パラメーター | 説明 |
 | --- | --- |
-| `startMarker` | 範囲の開始を示す要素 |
-| `endMarker` | 範囲の終了を示す要素 |
-| `newHtml` | モーフィング先のHTML文字列 |
-| `options`（任意） | モーフィングのオプション |
+| `startMarker` | 範囲の開始を示すDOMノード（通常はコメントノード） |
+| `endMarker` | 範囲の終了を示すDOMノード（通常はコメントノード） |
+| `newHtml` | マーカー間の内容を置き換えるHTML文字列またはDOM要素 |
+| `options` | `Alpine.morph()`と同じオプション |
