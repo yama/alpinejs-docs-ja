@@ -5,6 +5,7 @@ export default defineConfig({
   title: 'Alpine.js 日本語ドキュメント',
   description: 'Alpine.js公式ドキュメントの非公式日本語版',
   cleanUrls: true,
+  appearance: true,
   themeConfig: {
     nav: [
       { text: 'はじめに', link: '/start-here' },
@@ -104,6 +105,7 @@ export default defineConfig({
           { text: 'Reactivity', link: '/advanced/reactivity' },
           { text: 'Extending', link: '/advanced/extending' },
           { text: 'Async', link: '/advanced/async' },
+          { text: 'V2からのアップグレード', link: '/upgrade-guide' },
         ],
       },
     ],

@@ -26,7 +26,7 @@
 .docs-sidebar-group a { min-height: 32px; padding: 4px 8px; border-radius: 7px; color: #50606a; font-size: 1rem; line-height: 1.4; text-decoration: none; }
 .docs-sidebar-group a:hover,
 .docs-sidebar-group a.active { color: #078b68; background: #e8f5ec; }
-.docs-sidebar-group a svg { flex: 0 0 auto; color: currentColor; }
+.docs-sidebar-group a svg { flex: 0 0 auto; color: currentcolor; }
 .docs-sidebar-group.essentials h2 { color: #7659c6; }
 .docs-sidebar-group.directives h2 { color: #1787be; }
 .docs-sidebar-group.other h2,

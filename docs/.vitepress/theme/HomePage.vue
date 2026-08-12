@@ -1,21 +1,42 @@
 <script setup lang="ts">
+import { nextTick, ref, useTemplateRef } from 'vue'
 import { useRoute } from 'vitepress'
 import { useSiteTheme } from './useSiteTheme'
 
 const { isDark, toggleTheme } = useSiteTheme()
 const route = useRoute()
+const menuOpen = ref(false)
+const menuButton = useTemplateRef<HTMLButtonElement>('menuButton')
+const mobileMenu = useTemplateRef<HTMLElement>('mobileMenu')
 
 function isActive(section: string) {
   return route.path === section || route.path.startsWith(`${section}/`)
 }
+
+async function openMenu() {
+  menuOpen.value = true
+  await nextTick()
+  mobileMenu.value?.querySelector<HTMLAnchorElement>('a')?.focus()
+}
+
+function closeMenu() {
+  menuOpen.value = false
+  menuButton.value?.focus()
+}
+
+function handleMenuKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') closeMenu()
+}
+
 </script>
 
 <template>
   <div class="alpine-home">
     <header class="home-header">
       <a class="brand" href="/" aria-label="Alpine.js 日本語ドキュメント ホーム"><span>Alpine.js <small>日本語ドキュメント</small></span></a>
-      <nav aria-label="メインナビゲーション"><a :class="{ active: isActive('/start-here') }" href="/start-here">はじめに</a><a :class="{ active: isActive('/essentials') }" href="/essentials/installation">エッセンシャル</a><a :class="{ active: isActive('/directives') }" href="/directives/data">ディレクティブ</a><a :class="{ active: isActive('/magics') }" href="/magics/el">マジック</a><a :class="{ active: isActive('/globals') }" href="/globals/alpine-data">グローバル</a><a :class="{ active: isActive('/plugins') }" href="/plugins/mask">プラグイン</a><a :class="{ active: isActive('/advanced') }" href="/advanced/csp">アドバンス</a></nav>
-      <div class="header-actions"><button class="theme-button" type="button" :aria-label="isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'" @click="toggleTheme">{{ isDark ? '☀' : '☾' }}</button></div>
+      <nav class="desktop-home-nav" aria-label="メインナビゲーション"><a :class="{ active: isActive('/start-here') }" href="/start-here">はじめに</a><a :class="{ active: isActive('/essentials') }" href="/essentials/installation">エッセンシャル</a><a :class="{ active: isActive('/directives') }" href="/directives/data">ディレクティブ</a><a :class="{ active: isActive('/magics') }" href="/magics/el">マジック</a><a :class="{ active: isActive('/globals') }" href="/globals/alpine-data">グローバル</a><a :class="{ active: isActive('/plugins') }" href="/plugins/mask">プラグイン</a><a :class="{ active: isActive('/advanced') }" href="/advanced/csp">アドバンス</a></nav>
+      <div class="header-actions"><button ref="menuButton" class="menu-button" type="button" aria-controls="home-mobile-menu" :aria-expanded="menuOpen" :aria-label="menuOpen ? 'メニューを閉じる' : 'メニューを開く'" @click="menuOpen ? closeMenu() : openMenu()">☰</button><button class="theme-button" type="button" :aria-label="isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'" @click="toggleTheme">{{ isDark ? '☀' : '☾' }}</button></div>
+      <nav v-if="menuOpen" id="home-mobile-menu" ref="mobileMenu" class="mobile-home-nav" aria-label="モバイルメニュー" @keydown="handleMenuKeydown"><a href="/start-here">はじめに</a><a href="/essentials/installation">エッセンシャル</a><a href="/directives/data">ディレクティブ</a><a href="/magics/el">マジック</a><a href="/globals/alpine-data">グローバル</a><a href="/plugins/mask">プラグイン</a><a href="/advanced/csp">アドバンス</a><a href="/upgrade-guide">V2からのアップグレード</a></nav>
     </header>
     <main class="home-main">
       <section class="hero-card">

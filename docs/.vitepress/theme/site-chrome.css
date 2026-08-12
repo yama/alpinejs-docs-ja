@@ -5,7 +5,7 @@
   --site-brand: #078b68;
   --site-border: #eae5da;
   --site-header-height: 86px;
-  --vp-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --vp-font-family-base: "Inter", ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Hiragino Sans", "Noto Sans JP", sans-serif;
   --vp-nav-height: var(--site-header-height);
 }
 
@@ -78,7 +78,6 @@
   .home-header .brand small,
   .home-header .search-button span,
   .home-header .search-button kbd,
-  .home-header .theme-button,
   .docs-header .brand small,
   .docs-header .search-button span,
   .docs-header .search-button kbd,

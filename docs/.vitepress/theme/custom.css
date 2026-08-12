@@ -2,7 +2,7 @@
   --vp-c-brand-1: #078b68;
   --vp-c-brand-2: #0da477;
   --vp-font-family-base:
-    Inter, ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
     "Noto Sans JP", sans-serif;
 }
 .alpine-home {
@@ -88,6 +88,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.menu-button {
+  display: none;
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 18px;
 }
 .header-actions button {
   font: inherit;
@@ -559,6 +567,50 @@
     margin: 0;
   }
 }
+@media (max-width: 959px) {
+  .home-header {
+    position: relative;
+  }
+  .home-header .desktop-home-nav {
+    display: none;
+  }
+  .home-header .menu-button {
+    display: inline-block;
+  }
+  .mobile-home-nav {
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    left: 16px;
+    z-index: 20;
+    display: flex !important;
+    height: auto !important;
+    flex-direction: column;
+    gap: 0 !important;
+    padding: 8px;
+    border: 1px solid #eae5da;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 30px #24334324;
+  }
+  .mobile-home-nav a {
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 7px;
+  }
+  .mobile-home-nav a:hover,
+  .mobile-home-nav a:focus-visible {
+    background: #e8f5ec;
+  }
+  html.dark .mobile-home-nav {
+    border-color: #303b3c;
+    background: #202a2b;
+  }
+  html.dark .mobile-home-nav a:hover,
+  html.dark .mobile-home-nav a:focus-visible {
+    background: #23483d;
+  }
+}
 @media (max-width: 600px) {
   .home-header {
     height: 62px;
@@ -569,10 +621,7 @@
   }
   .brand small,
   .search-button span,
-  .search-button kbd,
-  .theme-button {
-    display: none;
-  }
+  .search-button kbd { display: none; }
   .home-main {
     width: min(100% - 28px, 1088px);
     margin-top: 14px;
