@@ -1,0 +1,147 @@
+/* Shared site chrome: both the home page and document pages use this source. */
+:root {
+  --site-ink: #172b3a;
+  --site-muted: #4c5961;
+  --site-brand: #078b68;
+  --site-border: #eae5da;
+  --site-header-height: 86px;
+  --vp-font-family-base: "Inter", ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --vp-nav-height: var(--site-header-height);
+}
+
+.home-header,
+.docs-header {
+  height: var(--site-header-height);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--site-border);
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(16px);
+}
+
+.home-header .brand,
+.docs-header .brand {
+  color: var(--site-ink);
+  font-size: 26px;
+  font-weight: 760;
+  letter-spacing: -.04em;
+}
+
+.home-header .brand small,
+.docs-header .brand small { font-size: 15px; }
+
+.home-header .desktop-home-nav,
+.docs-header .desktop-docs-nav {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+}
+
+.home-header .desktop-home-nav a,
+.docs-header .desktop-docs-nav a {
+  align-content: center;
+  color: var(--site-muted);
+  font-size: 17px;
+  font-weight: 650;
+  border-bottom: 3px solid transparent;
+}
+
+.home-header .desktop-home-nav a:hover,
+.home-header .desktop-home-nav .active,
+.docs-header .desktop-docs-nav a:hover,
+.docs-header .desktop-docs-nav .active {
+  color: var(--site-brand);
+  border-color: var(--site-brand);
+}
+
+.home-header .header-actions,
+.docs-header .header-actions { display: flex; align-items: center; gap: 13px; }
+
+.home-header .search-button,
+.docs-header .search-button { padding: 11px 15px; font-size: 16px; }
+
+.home-header .theme-button,
+.docs-header .theme-button { width: 47px; height: 47px; font-size: 21px; }
+
+.docs-menu-button,
+.menu-button { display: none; }
+
+@media (max-width: 959px) {
+  :root { --site-header-height: 64px; }
+  .home-header,
+  .docs-header { padding: 0 16px; }
+  .home-header .desktop-home-nav,
+  .docs-header .desktop-docs-nav { display: none; }
+  .home-header .brand,
+  .docs-header .brand { font-size: 18px; }
+  .home-header .brand small,
+  .home-header .search-button span,
+  .home-header .search-button kbd,
+  .docs-header .brand small,
+  .docs-header .search-button span,
+  .docs-header .search-button kbd { display: none; }
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body,
+html.dark .Layout,
+html.dark .VPContent,
+html.dark .VPDoc,
+html.dark .alpine-home { color: #e7eee9; background: #141a1b; }
+
+html.dark .home-header,
+html.dark .docs-header { border-color: #303b3c; background: rgba(20, 26, 27, .94); }
+html.dark .brand,
+html.dark .home-header .desktop-home-nav a,
+html.dark .docs-header .desktop-docs-nav a { color: #d5e0dc; }
+html.dark .home-header .desktop-home-nav a:hover,
+html.dark .home-header .desktop-home-nav .active,
+html.dark .docs-header .desktop-docs-nav a:hover,
+html.dark .docs-header .desktop-docs-nav .active { color: #6fe0b5; border-color: #6fe0b5; }
+html.dark .header-actions button { color: #e7eee9; border-color: #465353; background: #202a2b; }
+
+html.dark .hero-card { border-color: #3b4945; background: radial-gradient(circle at 75% 7%, #30443a 0, #263630 46%, #1c2825 100%); }
+html.dark .hero-card h1,
+html.dark .hero-card h2,
+html.dark .hero-copy > p:not(.eyebrow),
+html.dark .benefits h2,
+html.dark .benefits p,
+html.dark .getting-started h2,
+html.dark .getting-started > p:not(.eyebrow),
+html.dark .section-heading h2,
+html.dark .directive-cards p { color: #e7eee9; }
+html.dark .eyebrow,
+html.dark .hero-card h1 em { color: #63d6ad; }
+html.dark .section-heading a { color: #7cc9e8; }
+html.dark .benefits article,
+html.dark .directive-section { border-color: #3b4945; background: #1d2728; }
+html.dark .getting-started { background: linear-gradient(135deg, #1d3830, #20302c); }
+html.dark .getting-started a,
+html.dark .directive-cards a { border-color: #43534f; color: #e7eee9; background: #263132; }
+html.dark .directive-cards code { color: #b9d5ca; background: #182021; }
+html.dark .directive-cards span { color: #d8e8e2; }
+html.dark .site-note { border-color: #5b5135; background: #302b1d; }
+html.dark .site-note p { color: #d8d0b8; }
+html.dark .site-note a { border-color: #5a574a; color: #e7eee9; background: #39372e; }
+
+html.dark .docs-sidebar,
+html.dark .VPSidebar { border-color: #303b3c; background: #1b2425; }
+html.dark .docs-sidebar-group { border-color: #354142; }
+html.dark .docs-sidebar-group a { color: #c5d1cd; }
+html.dark .docs-sidebar-group a:hover,
+html.dark .docs-sidebar-group a.active { color: #8be8c5; background: #23483d; }
+html.dark .VPDoc .content { color: #d8e1dd; }
+html.dark .VPDoc h1,
+html.dark .VPDoc h2,
+html.dark .VPDoc h3 { color: #eef5f1; }
+html.dark .VPDoc a { color: #6fe0b5; }
+html.dark .VPDoc .vp-doc :not(pre) > code { color: #63d6ad !important; }
+html.dark .vp-code,
+html.dark div[class*='language-'] { background: #1b2425; }
