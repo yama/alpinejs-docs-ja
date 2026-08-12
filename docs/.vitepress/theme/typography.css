@@ -1,0 +1,37 @@
+/* One readable scale for prose and navigation; avoid per-card micro typography. */
+html { font-size: 16px; }
+
+.alpine-home,
+.VPDoc,
+.VPSidebar { font-size: 1rem; }
+
+.eyebrow { font-size: inherit; }
+
+.benefits h2,
+.getting-started h2,
+.section-heading h2 { font-size: 1.125rem; }
+
+.benefits p,
+.getting-started > p:not(.eyebrow),
+.getting-started a,
+.directive-cards p,
+.site-note p { font-size: .9375rem; }
+
+.getting-started strong,
+.directive-cards strong,
+.site-note strong { font-size: 1rem; }
+
+.directive-cards code,
+.directive-cards span,
+.site-note a { font-size: .875rem; }
+
+.VPSidebarItem .text { font-size: 1rem; }
+.VPSidebarItem.level-0 > .item > .text { font-size: 1.0625rem; }
+
+@media (max-width: 600px) {
+  .benefits p,
+  .getting-started > p:not(.eyebrow),
+  .getting-started a,
+  .directive-cards p,
+  .site-note p { font-size: 1rem; }
+}

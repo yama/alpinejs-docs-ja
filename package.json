@@ -8,6 +8,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "playwright": "^1.62.1",
     "vitepress": "1.6.4"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.31.0"
   }
 }
