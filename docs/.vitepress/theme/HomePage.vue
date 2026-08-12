@@ -2,6 +2,7 @@
 import { nextTick, ref, useTemplateRef } from 'vue'
 import { useRoute } from 'vitepress'
 import { useSiteTheme } from './useSiteTheme'
+import { siteNavigation } from './site-navigation'
 
 const { isDark, toggleTheme } = useSiteTheme()
 const route = useRoute()
@@ -34,9 +35,9 @@ function handleMenuKeydown(event: KeyboardEvent) {
   <div class="alpine-home">
     <header class="home-header">
       <a class="brand" href="/" aria-label="Alpine.js 日本語ドキュメント ホーム"><span>Alpine.js <small>日本語ドキュメント</small></span></a>
-      <nav class="desktop-home-nav" aria-label="メインナビゲーション"><a :class="{ active: isActive('/start-here') }" href="/start-here">はじめに</a><a :class="{ active: isActive('/essentials') }" href="/essentials/installation">エッセンシャル</a><a :class="{ active: isActive('/directives') }" href="/directives/data">ディレクティブ</a><a :class="{ active: isActive('/magics') }" href="/magics/el">マジック</a><a :class="{ active: isActive('/globals') }" href="/globals/alpine-data">グローバル</a><a :class="{ active: isActive('/plugins') }" href="/plugins/mask">プラグイン</a><a :class="{ active: isActive('/advanced') }" href="/advanced/csp">アドバンス</a></nav>
+      <nav class="desktop-home-nav" aria-label="メインナビゲーション"><a v-for="item in siteNavigation" :key="item.link" :class="{ active: isActive(item.section) }" :href="item.link">{{ item.text }}</a></nav>
       <div class="header-actions"><button ref="menuButton" class="menu-button" type="button" aria-controls="home-mobile-menu" :aria-expanded="menuOpen" :aria-label="menuOpen ? 'メニューを閉じる' : 'メニューを開く'" @click="menuOpen ? closeMenu() : openMenu()">☰</button><button class="theme-button" type="button" :aria-label="isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'" @click="toggleTheme">{{ isDark ? '☀' : '☾' }}</button></div>
-      <nav v-if="menuOpen" id="home-mobile-menu" ref="mobileMenu" class="mobile-home-nav" aria-label="モバイルメニュー" @keydown="handleMenuKeydown"><a href="/start-here">はじめに</a><a href="/essentials/installation">エッセンシャル</a><a href="/directives/data">ディレクティブ</a><a href="/magics/el">マジック</a><a href="/globals/alpine-data">グローバル</a><a href="/plugins/mask">プラグイン</a><a href="/advanced/csp">アドバンス</a><a href="/upgrade-guide">V2からのアップグレード</a></nav>
+      <nav v-if="menuOpen" id="home-mobile-menu" ref="mobileMenu" class="mobile-home-nav" aria-label="モバイルメニュー" @keydown="handleMenuKeydown"><a v-for="item in siteNavigation" :key="item.link" :class="{ active: isActive(item.section) }" :href="item.link">{{ item.text }}</a><a href="/upgrade-guide">V2からのアップグレード</a></nav>
     </header>
     <main class="home-main">
       <section class="hero-card">

@@ -1,8 +1,6 @@
-/* Standard VitePress pages share the same visual language as the custom home. */
-@media (min-width: 960px) {
-  .VPNav,
-  .VPSidebar { display: none; }
-}
+/* The custom docs shell owns navigation at every viewport width. */
+.VPNav,
+.VPSidebar { display: none; }
 
 .docs-sidebar {
   position: fixed;
@@ -79,70 +77,6 @@
 .docs-header .theme-button { width: 47px; height: 47px; font-size: 21px; }
 
 :root { --vp-nav-height: 86px; }
-.VPSidebar {
-  padding-top: 104px;
-  background: #f8f5ed;
-  border-right: 1px solid #eee8df;
-}
-
-.VPSidebarItem .text {
-  color: #50606a;
-  font-size: 13px;
-}
-
-/* Icons reserve identical space, so menu labels always start at one position. */
-.VPSidebarItem .link .text::before,
-.VPSidebarItem.level-0 > .item > .text::before {
-  display: inline-block;
-  width: 1.5em;
-  margin-right: .35em;
-  color: #078b68;
-  font-weight: 500;
-  text-align: center;
-}
-
-.VPSidebarItem .link .text::before { content: '◇'; }
-.VPSidebarItem.level-0 > .item > .text::before { content: '✦'; }
-
-/* Category identity is attached to stable destination links, not DOM position. */
-.VPSidebarItem.level-0:has(a[href="/start-here"]) > .item > .text,
-.VPSidebarItem.level-0:has(a[href="/start-here"]) > .item > .text::before { color: #078b68 !important; }
-.VPSidebarItem.level-0:has(a[href="/start-here"]) > .item > .text::before { content: '⚑'; }
-
-.VPSidebarItem.level-0:has(a[href="/essentials"]) > .item > .text,
-.VPSidebarItem.level-0:has(a[href="/essentials"]) > .item > .text::before { color: #7659c6; }
-.VPSidebarItem.level-0:has(a[href="/essentials"]) > .item > .text::before { content: '☆'; }
-
-.VPSidebarItem.level-0:has(a[href="/directives"]) > .item > .text,
-.VPSidebarItem.level-0:has(a[href="/directives"]) > .item > .text::before { color: #1787be; }
-.VPSidebarItem.level-0:has(a[href="/directives"]) > .item > .text::before { content: '⌘'; }
-.VPSidebarItem.level-0:has(a[href="/directives"]) .link .text::before { content: '⌘'; color: #1787be; }
-
-.VPSidebarItem.level-0:has(a[href="/plugins"]) > .item > .text,
-.VPSidebarItem.level-0:has(a[href="/plugins"]) > .item > .text::before { color: #16836d; }
-.VPSidebarItem.level-0:has(a[href="/plugins"]) > .item > .text::before { content: '✽'; }
-
-.VPSidebarItem.level-0:has(a[href="/advanced"]) > .item > .text,
-.VPSidebarItem.level-0:has(a[href="/advanced"]) > .item > .text::before { color: #e27c35; }
-.VPSidebarItem.level-0:has(a[href="/advanced"]) > .item > .text::before { content: '♨'; }
-
-.VPSidebarItem.level-0 > .item > .text {
-  color: #087c62;
-  font-size: 14px;
-  font-weight: 760;
-}
-
-
-.VPSidebarItem .item .link:hover .text,
-.VPSidebarItem .item .link.active .text {
-  color: #087c62;
-}
-
-.VPSidebarItem .item .link.active {
-  border-radius: 7px;
-  background: #e8f5ec;
-}
-
 .VPDoc .content {
   padding-top: 40px;
 }
@@ -163,15 +97,41 @@
 .VPDoc a { color: #078b68; }
 
 @media (max-width: 959px) {
-  .docs-sidebar,
-  .docs-header { display: none; }
+  .docs-sidebar { display: none; }
   .docs-header { height: 64px; }
-  .docs-header nav { display: none; }
+  .docs-header .desktop-docs-nav { display: none; }
   .docs-header .brand { font-size: 18px; }
   .docs-header .brand small,
   .docs-header .search-button span,
-  .docs-header .search-button kbd,
-  .docs-header .theme-button { display: none; }
+  .docs-header .search-button kbd { display: none; }
+  .docs-header .docs-menu-button { display: inline-block; }
+  .docs-mobile-nav {
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    left: 16px;
+    z-index: 20;
+    display: flex !important;
+    height: auto !important;
+    flex-direction: column;
+    gap: 0 !important;
+    padding: 8px;
+    border: 1px solid #eae5da;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 30px #24334324;
+  }
+  .docs-mobile-nav a {
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 7px;
+  }
+  .docs-mobile-nav a:hover,
+  .docs-mobile-nav a.active,
+  .docs-mobile-nav a:focus-visible { color: #078b68; background: #e8f5ec; }
+  html.dark .docs-mobile-nav { border-color: #303b3c; background: #202a2b; }
+  html.dark .docs-mobile-nav a:hover,
+  html.dark .docs-mobile-nav a.active,
+  html.dark .docs-mobile-nav a:focus-visible { color: #8be8c5; background: #23483d; }
   :root { --vp-nav-height: 64px; }
-  .VPSidebar { padding-top: 82px; }
 }

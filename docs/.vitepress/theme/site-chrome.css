@@ -32,8 +32,8 @@
 .home-header .brand small,
 .docs-header .brand small { font-size: 15px; }
 
-.home-header nav,
-.docs-header nav {
+.home-header .desktop-home-nav,
+.docs-header .desktop-docs-nav {
   flex: 1;
   height: 100%;
   display: flex;
@@ -41,8 +41,8 @@
   gap: 38px;
 }
 
-.home-header nav a,
-.docs-header nav a {
+.home-header .desktop-home-nav a,
+.docs-header .desktop-docs-nav a {
   align-content: center;
   color: var(--site-muted);
   font-size: 17px;
@@ -50,10 +50,10 @@
   border-bottom: 3px solid transparent;
 }
 
-.home-header nav a:hover,
-.home-header nav .active,
-.docs-header nav a:hover,
-.docs-header nav .active {
+.home-header .desktop-home-nav a:hover,
+.home-header .desktop-home-nav .active,
+.docs-header .desktop-docs-nav a:hover,
+.docs-header .desktop-docs-nav .active {
   color: var(--site-brand);
   border-color: var(--site-brand);
 }
@@ -67,12 +67,15 @@
 .home-header .theme-button,
 .docs-header .theme-button { width: 47px; height: 47px; font-size: 21px; }
 
+.docs-menu-button,
+.menu-button { display: none; }
+
 @media (max-width: 959px) {
   :root { --site-header-height: 64px; }
   .home-header,
   .docs-header { padding: 0 16px; }
-  .home-header nav,
-  .docs-header nav { display: none; }
+  .home-header .desktop-home-nav,
+  .docs-header .desktop-docs-nav { display: none; }
   .home-header .brand,
   .docs-header .brand { font-size: 18px; }
   .home-header .brand small,
@@ -80,8 +83,7 @@
   .home-header .search-button kbd,
   .docs-header .brand small,
   .docs-header .search-button span,
-  .docs-header .search-button kbd,
-  .docs-header .theme-button { display: none; }
+  .docs-header .search-button kbd { display: none; }
 }
 
 html.dark {
@@ -97,12 +99,12 @@ html.dark .alpine-home { color: #e7eee9; background: #141a1b; }
 html.dark .home-header,
 html.dark .docs-header { border-color: #303b3c; background: rgba(20, 26, 27, .94); }
 html.dark .brand,
-html.dark .home-header nav a,
-html.dark .docs-header nav a { color: #d5e0dc; }
-html.dark .home-header nav a:hover,
-html.dark .home-header nav .active,
-html.dark .docs-header nav a:hover,
-html.dark .docs-header nav .active { color: #6fe0b5; border-color: #6fe0b5; }
+html.dark .home-header .desktop-home-nav a,
+html.dark .docs-header .desktop-docs-nav a { color: #d5e0dc; }
+html.dark .home-header .desktop-home-nav a:hover,
+html.dark .home-header .desktop-home-nav .active,
+html.dark .docs-header .desktop-docs-nav a:hover,
+html.dark .docs-header .desktop-docs-nav .active { color: #6fe0b5; border-color: #6fe0b5; }
 html.dark .header-actions button { color: #e7eee9; border-color: #465353; background: #202a2b; }
 
 html.dark .hero-card { border-color: #3b4945; background: radial-gradient(circle at 75% 7%, #30443a 0, #263630 46%, #1c2825 100%); }
