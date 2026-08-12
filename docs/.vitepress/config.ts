@@ -4,6 +4,13 @@ export default defineConfig({
   lang: 'ja',
   title: 'Alpine.js 日本語ドキュメント',
   description: 'Alpine.js公式ドキュメントの非公式日本語版',
+  head: [
+    ['meta', { property: 'og:image', content: 'https://alpinejs-docs-ja.kyms.jp/images/ogp.png' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://alpinejs-docs-ja.kyms.jp/images/ogp.png' }],
+  ],
   cleanUrls: true,
   appearance: true,
   themeConfig: {
