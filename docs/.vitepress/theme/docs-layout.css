@@ -1,6 +1,8 @@
 /* Standard VitePress pages share the same visual language as the custom home. */
-.VPNav { display: none; }
-.VPSidebar { display: none; }
+@media (min-width: 960px) {
+  .VPNav,
+  .VPSidebar { display: none; }
+}
 
 .docs-sidebar {
   position: fixed;
@@ -161,7 +163,8 @@
 .VPDoc a { color: #078b68; }
 
 @media (max-width: 959px) {
-  .docs-sidebar { display: none; }
+  .docs-sidebar,
+  .docs-header { display: none; }
   .docs-header { height: 64px; }
   .docs-header nav { display: none; }
   .docs-header .brand { font-size: 18px; }

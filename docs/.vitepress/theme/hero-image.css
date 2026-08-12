@@ -7,18 +7,6 @@
   object-position: center;
 }
 
-.hero-image-dark {
-  display: none;
-}
-
-html.dark .hero-image-dark {
-  display: block;
-}
-
-html.dark .hero-image-light {
-  display: none;
-}
-
 .hero-copy {
   z-index: 1;
 }

@@ -41,7 +41,7 @@ function itemIcon(group: SidebarGroup, item: SidebarItem): Component {
   if (group.text === 'プラグイン') return Package
   if (group.text === 'マジック') return Sparkles
   if (group.text === 'グローバル') return Globe2
-  if (item.link === '/essentials') return BookOpen
+  if (group.text === 'エッセンシャル') return BookOpen
   return FileText
 }
 
@@ -67,7 +67,7 @@ function groupClass(group: SidebarGroup) {
         :key="item.link"
         :href="item.link"
         :target="item.external ? '_blank' : undefined"
-        :rel="item.external ? 'noreferrer' : undefined"
+        :rel="item.external ? 'noopener noreferrer' : undefined"
         :class="{ active: route.path === item.link }"
       >
         <component :is="itemIcon(group, item)" :size="15" stroke-width="1.7" />
