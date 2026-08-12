@@ -72,6 +72,8 @@
 .docs-header nav a:hover,
 .docs-header nav .active { color: #078b68; border-color: #078b68; }
 
+.docs-header .docs-mobile-nav { display: none; }
+
 .docs-header .header-actions { display: flex; align-items: center; gap: 13px; }
 .docs-header .search-button { padding: 11px 15px; font-size: 16px; }
 .docs-header .theme-button { width: 47px; height: 47px; font-size: 21px; }
@@ -105,7 +107,7 @@
   .docs-header .search-button span,
   .docs-header .search-button kbd { display: none; }
   .docs-header .docs-menu-button { display: inline-block; }
-  .docs-mobile-nav {
+  .docs-header .docs-mobile-nav {
     position: absolute;
     top: 100%;
     right: 16px;
@@ -133,5 +135,9 @@
   html.dark .docs-mobile-nav a:hover,
   html.dark .docs-mobile-nav a.active,
   html.dark .docs-mobile-nav a:focus-visible { color: #8be8c5; background: #23483d; }
+  .docs-mobile-nav-group { padding: 0 0 8px; }
+  .docs-mobile-nav-group + .docs-mobile-nav-group { border-top: 1px solid #eae5da; padding-top: 8px; }
+  .docs-mobile-nav-group h2 { margin: 4px 12px 2px; color: #078b68; font-size: .875rem; }
+  html.dark .docs-mobile-nav-group + .docs-mobile-nav-group { border-color: #303b3c; }
   :root { --vp-nav-height: 64px; }
 }
