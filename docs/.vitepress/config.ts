@@ -4,6 +4,24 @@ export default defineConfig({
   lang: 'ja',
   title: 'Alpine.js 日本語ドキュメント',
   description: 'Alpine.js公式ドキュメントの非公式日本語版',
+  transformHead({ pageData }) {
+    const siteUrl = 'https://alpinejs-docs-ja.kyms.jp'
+    const pagePath = pageData.relativePath === 'index.md'
+      ? '/'
+      : `/${pageData.relativePath.replace(/\.md$/, '')}`
+    const pageUrl = new URL(pagePath, siteUrl).toString()
+    const title = pageData.title || 'Alpine.js 日本語ドキュメント'
+    const description = pageData.description || 'Alpine.js公式ドキュメントの非公式日本語版'
+
+    return [
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:url', content: pageUrl }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+    ]
+  },
   head: [
     ['meta', { property: 'og:image', content: 'https://alpinejs-docs-ja.kyms.jp/images/ogp.png' }],
     ['meta', { property: 'og:image:width', content: '1200' }],
