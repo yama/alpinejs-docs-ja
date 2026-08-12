@@ -42,7 +42,7 @@ function handleMenuKeydown(event: KeyboardEvent) {
       <button ref="menuButton" class="docs-menu-button" type="button" aria-controls="docs-mobile-menu" :aria-expanded="menuOpen" :aria-label="menuOpen ? 'メニューを閉じる' : 'メニューを開く'" @click="menuOpen ? closeMenu() : openMenu()">☰</button>
       <button class="theme-button" type="button" :aria-label="isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'" @click="toggleTheme">{{ isDark ? '☀' : '☾' }}</button>
     </div>
-    <nav v-if="menuOpen" id="docs-mobile-menu" ref="mobileMenu" class="docs-mobile-nav" aria-label="モバイルメニュー" @keydown="handleMenuKeydown">
+    <nav v-if="menuOpen" id="docs-mobile-menu" ref="mobileMenu" class="docs-mobile-nav" aria-label="モバイルメニュー" @click="menuOpen = false" @keydown="handleMenuKeydown">
       <a v-for="item in siteNavigation" :key="item.link" :class="{ active: isActive(item.section) }" :href="item.link">{{ item.text }}</a>
       <a href="/upgrade-guide">V2からのアップグレード</a>
     </nav>
