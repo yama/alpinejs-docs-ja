@@ -1,8 +1,17 @@
 /* Homepage-only layout and components. Shared chrome lives in site-chrome.css. */
+:root {
+  --home-color-card-border: #eee8df;
+  --home-color-card-surface: #fffdfa;
+  --home-color-muted: #596772;
+  --home-radius-card: 17px;
+  --home-radius-control: 10px;
+  --home-space-section: 17px;
+}
+
 .alpine-home {
   min-height: 100vh;
-  color: #183040;
-  background: #fbfaf6;
+  color: var(--site-color-text);
+  background: var(--site-color-page);
 }
 .home-header {
   position: sticky;
@@ -13,11 +22,11 @@
   min-width: 34px;
   height: 34px;
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--home-radius-control);
   font-size: 18px;
 }
 .home-main {
-  width: min(1088px, calc(100% - 48px));
+  width: min(var(--site-content-max-width), calc(100% - var(--site-content-gutter)));
   margin: 22px auto 38px;
 }
 .hero-card {
@@ -41,7 +50,7 @@
   width: 62%;
 }
 .alpine-home .eyebrow {
-  color: #078b68;
+  color: var(--site-color-brand);
   margin: 0 0 5px;
   font-size: 13px;
   font-weight: 750;
@@ -54,7 +63,7 @@
   letter-spacing: -0.05em;
 }
 .hero-card h1 em {
-  color: #078b68;
+  color: var(--site-color-brand);
   font-size: 0.72em;
   font-style: normal;
   letter-spacing: -0.07em;
@@ -67,7 +76,7 @@
   width: 430px;
   max-width: 100%;
   margin: 0;
-  color: #43535c;
+  color: var(--home-color-muted);
   font-size: 15px;
   line-height: 1.7;
 }
@@ -78,7 +87,7 @@
 }
 .alpine-home .button {
   padding: 13px 18px;
-  border-radius: 10px;
+  border-radius: var(--home-radius-control);
   box-shadow: 0 2px 5px #24334324;
   text-decoration: none;
   font-size: 14px;
@@ -86,7 +95,7 @@
 }
 .alpine-home .button.primary {
   color: #fff;
-  background: #078b68;
+  background: var(--site-color-brand);
 }
 .alpine-home .button.secondary {
   color: #27343b;
@@ -96,7 +105,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin: 17px 0;
+  margin: var(--home-space-section) 0;
 }
 .benefits article {
   min-height: 89px;
@@ -104,9 +113,9 @@
   gap: 13px;
   align-items: flex-start;
   padding: 18px 15px;
-  border: 1px solid #eee8df;
-  border-radius: 17px;
-  background: #fffdfa;
+  border: 1px solid var(--home-color-card-border);
+  border-radius: var(--home-radius-card);
+  background: var(--home-color-card-surface);
 }
 .alpine-home .feature-icon {
   width: 47px;
@@ -137,22 +146,21 @@
 }
 .benefits p {
   margin: 0;
-  color: #596772;
+  color: var(--home-color-muted);
   font-size: 12px;
   line-height: 1.55;
 }
 .home-grid {
-  width: min(100%, 960px);
-  margin-inline: auto;
+  width: 100%;
   display: grid;
   grid-template-columns: 30% 1fr;
-  gap: 17px;
+  gap: var(--home-space-section);
 }
 .getting-started,
 .directive-section {
   min-width: 0;
-  border: 1px solid #eee8df;
-  border-radius: 17px;
+  border: 1px solid var(--home-color-card-border);
+  border-radius: var(--home-radius-card);
 }
 .getting-started {
   padding: 18px;
@@ -164,7 +172,7 @@
 }
 .getting-started > p:not(.eyebrow) {
   margin: 0 0 13px;
-  color: #596772;
+  color: var(--home-color-muted);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -175,7 +183,7 @@
   margin-top: 8px;
   padding: 10px 13px;
   border: 1px solid #d6e6d7;
-  border-radius: 10px;
+  border-radius: var(--home-radius-control);
   background: #fffefd;
   color: #183b3b;
   text-decoration: none;
@@ -186,7 +194,7 @@
 }
 .directive-section {
   padding: 18px 16px 15px;
-  background: #fffdfa;
+  background: var(--home-color-card-surface);
 }
 .alpine-home .section-heading {
   display: flex;
@@ -213,10 +221,10 @@
   min-width: 0;
   min-height: 154px;
   padding: 13px;
-  border: 1px solid #ebe6df;
+  border: 1px solid var(--home-color-card-border);
   border-radius: 13px;
   color: #273942;
-  background: #fff;
+  background: var(--site-color-surface);
   text-decoration: none;
 }
 .directive-cards b {
@@ -252,7 +260,7 @@
 .directive-cards p {
   min-height: 35px;
   margin: 0 0 9px;
-  color: #55636d;
+  color: var(--home-color-muted);
   font-size: 11px;
   line-height: 1.5;
 }
@@ -268,10 +276,10 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-top: 17px;
+  margin-top: var(--home-space-section);
   padding: 11px 16px;
   border: 1px solid #f3e9cf;
-  border-radius: 15px;
+  border-radius: var(--home-radius-card);
   background: #fff8e6;
 }
 .alpine-home .note-icon {

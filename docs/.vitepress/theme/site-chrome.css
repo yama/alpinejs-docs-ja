@@ -1,12 +1,25 @@
 /* Shared site chrome: both the home page and document pages use this source. */
 :root {
-  --site-ink: #172b3a;
-  --site-muted: #4c5961;
-  --site-brand: #078b68;
-  --site-border: #eae5da;
+  --site-content-max-width: 1088px;
+  --site-content-gutter: 48px;
   --site-header-height: 86px;
-  --vp-c-brand-1: #078b68;
-  --vp-c-brand-2: #0da477;
+  --site-breakpoint-mobile: 1100px;
+
+  --site-color-brand: #078b68;
+  --site-color-brand-strong: #0da477;
+  --site-color-ink: #172b3a;
+  --site-color-text: #183040;
+  --site-color-muted: #4c5961;
+  --site-color-border: #eae5da;
+  --site-color-surface: #fff;
+  --site-color-page: #fbfaf6;
+
+  --site-radius-control: 8px;
+  --site-radius-button: 50%;
+  --site-space-header: 30px;
+
+  --vp-c-brand-1: var(--site-color-brand);
+  --vp-c-brand-2: var(--site-color-brand-strong);
   --vp-font-family-base: "Inter", ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Hiragino Sans", "Noto Sans JP", sans-serif;
   --vp-nav-height: var(--site-header-height);
 }
@@ -16,16 +29,16 @@
   height: var(--site-header-height);
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: var(--site-space-header);
   padding: 0 22px;
-  border-bottom: 1px solid var(--site-border);
-  background: rgba(255, 255, 255, .94);
+  border-bottom: 1px solid var(--site-color-border);
+  background: color-mix(in srgb, var(--site-color-surface) 94%, transparent);
   backdrop-filter: blur(16px);
 }
 
 .home-header .brand,
 .docs-header .brand {
-  color: var(--site-ink);
+  color: var(--site-color-ink);
   font-size: 26px;
   font-weight: 760;
   letter-spacing: -.04em;
@@ -46,7 +59,7 @@
 .home-header .desktop-home-nav a,
 .docs-header .desktop-docs-nav a {
   align-content: center;
-  color: var(--site-muted);
+  color: var(--site-color-muted);
   font-size: 17px;
   font-weight: 650;
   border-bottom: 3px solid transparent;
@@ -56,8 +69,8 @@
 .home-header .desktop-home-nav .active,
 .docs-header .desktop-docs-nav a:hover,
 .docs-header .desktop-docs-nav .active {
-  color: var(--site-brand);
-  border-color: var(--site-brand);
+  color: var(--site-color-brand);
+  border-color: var(--site-color-brand);
 }
 
 .home-header .header-actions,
@@ -65,16 +78,16 @@
 
 .header-actions button {
   font: inherit;
-  color: #44515a;
-  border: 1px solid #ece7de;
-  background: #fff;
+  color: var(--site-color-muted);
+  border: 1px solid var(--site-color-border);
+  background: var(--site-color-surface);
   cursor: pointer;
 }
 
 .theme-button {
   width: 47px;
   height: 47px;
-  border-radius: 50%;
+  border-radius: var(--site-radius-button);
   font-size: 21px;
 }
 
@@ -84,7 +97,7 @@
   width: 34px;
   height: 34px;
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--site-radius-control);
   font-size: 18px;
 }
 
@@ -101,6 +114,12 @@
 }
 
 html.dark {
+  --site-color-ink: #d5e0dc;
+  --site-color-text: #e7eee9;
+  --site-color-muted: #c5d1cd;
+  --site-color-border: #303b3c;
+  --site-color-surface: #202a2b;
+  --site-color-page: #141a1b;
   color-scheme: dark;
 }
 
@@ -108,13 +127,13 @@ html.dark body,
 html.dark .Layout,
 html.dark .VPContent,
 html.dark .VPDoc,
-html.dark .alpine-home { color: #e7eee9; background: #141a1b; }
+html.dark .alpine-home { color: var(--site-color-text); background: var(--site-color-page); }
 
 html.dark .home-header,
-html.dark .docs-header { border-color: #303b3c; background: rgba(20, 26, 27, .94); }
+html.dark .docs-header { border-color: var(--site-color-border); background: color-mix(in srgb, var(--site-color-page) 94%, transparent); }
 html.dark .brand,
 html.dark .home-header .desktop-home-nav a,
-html.dark .docs-header .desktop-docs-nav a { color: #d5e0dc; }
+html.dark .docs-header .desktop-docs-nav a { color: var(--site-color-ink); }
 html.dark .home-header .desktop-home-nav a:hover,
 html.dark .home-header .desktop-home-nav .active,
 html.dark .docs-header .desktop-docs-nav a:hover,
