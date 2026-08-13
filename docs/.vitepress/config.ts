@@ -1,9 +1,34 @@
 import { defineConfig } from 'vitepress'
 
+const siteUrl = 'https://alpinejs-docs-ja.kyms.jp'
+const ogpImageUrl = new URL('/images/ogp.png', siteUrl).toString()
+
 export default defineConfig({
   lang: 'ja',
   title: 'Alpine.js 日本語ドキュメント',
   description: 'Alpine.js公式ドキュメントの非公式日本語版',
+  transformHead({ pageData }) {
+    const pagePath = pageData.relativePath === 'index.md'
+      ? '/'
+      : `/${pageData.relativePath.replace(/\.md$/, '')}`
+    const pageUrl = new URL(pagePath, siteUrl).toString()
+    const title = pageData.title || 'Alpine.js 日本語ドキュメント'
+    const description = pageData.description || 'Alpine.js公式ドキュメントの非公式日本語版'
+
+    return [
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:url', content: pageUrl }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:image', content: ogpImageUrl }],
+      ['meta', { property: 'og:image:width', content: '1200' }],
+      ['meta', { property: 'og:image:height', content: '630' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['meta', { name: 'twitter:image', content: ogpImageUrl }],
+    ]
+  },
   cleanUrls: true,
   appearance: true,
   themeConfig: {

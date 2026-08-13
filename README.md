@@ -19,6 +19,10 @@ Alpine.js公式ドキュメントの非公式日本語版です。
 
 公開サイト: https://alpinejs-docs-ja.kyms.jp/
 
+## ライセンス
+
+ライセンス情報は [LICENSE.md](LICENSE.md) を参照してください。Alpine.js由来のコンテンツは、翻訳元リポジトリと同じMIT Licenseに従います。
+
 `.upstream-version` は `upstream/docs/` の原文スナップショットの基準を示します。全ページの翻訳完了状態を示すものではありません。翻訳済みページは、`docs/` に対応するファイルが存在するページです。
 
 ## 開発

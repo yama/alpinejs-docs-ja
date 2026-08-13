@@ -21,5 +21,8 @@ html.dark .hero-image-dark { display: block; }
 }
 
 @media (max-width: 600px) {
-  .hero-image { object-position: 66% center; }
+  .hero-image {
+    opacity: .2;
+    object-position: 66% center;
+  }
 }
