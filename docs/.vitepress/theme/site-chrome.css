@@ -5,6 +5,8 @@
   --site-brand: #078b68;
   --site-border: #eae5da;
   --site-header-height: 86px;
+  --vp-c-brand-1: #078b68;
+  --vp-c-brand-2: #0da477;
   --vp-font-family-base: "Inter", ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Hiragino Sans", "Noto Sans JP", sans-serif;
   --vp-nav-height: var(--site-header-height);
 }
@@ -61,8 +63,13 @@
 .home-header .header-actions,
 .docs-header .header-actions { display: flex; align-items: center; gap: 13px; }
 
-.home-header .search-button,
-.docs-header .search-button { padding: 11px 15px; font-size: 16px; }
+.header-actions button {
+  font: inherit;
+  color: #44515a;
+  border: 1px solid #ece7de;
+  background: #fff;
+  cursor: pointer;
+}
 
 .home-header .theme-button,
 .docs-header .theme-button { width: 47px; height: 47px; font-size: 21px; }
@@ -70,7 +77,7 @@
 .docs-menu-button,
 .menu-button { display: none; }
 
-@media (max-width: 959px) {
+@media (max-width: 1100px) {
   :root { --site-header-height: 64px; }
   .home-header,
   .docs-header { padding: 0 16px; }
@@ -79,11 +86,7 @@
   .home-header .brand,
   .docs-header .brand { font-size: 18px; }
   .home-header .brand small,
-  .home-header .search-button span,
-  .home-header .search-button kbd,
-  .docs-header .brand small,
-  .docs-header .search-button span,
-  .docs-header .search-button kbd { display: none; }
+  .docs-header .brand small { display: none; }
 }
 
 html.dark {
