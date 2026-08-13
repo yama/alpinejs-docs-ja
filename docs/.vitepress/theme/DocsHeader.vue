@@ -40,7 +40,7 @@ function handleViewportChange(event: MediaQueryListEvent) {
 }
 
 onMounted(() => {
-  desktopViewport = window.matchMedia('(min-width: 960px)')
+  desktopViewport = window.matchMedia('(min-width: 1101px)')
   desktopViewport.addEventListener('change', handleViewportChange)
 })
 

@@ -95,3 +95,7 @@
   .docs-mobile-nav-group h2 { margin: 4px 12px 2px; color: #078b68; font-size: .875rem; }
   html.dark .docs-mobile-nav-group + .docs-mobile-nav-group { border-color: #303b3c; }
 }
+
+@media (min-width: 960px) and (max-width: 1100px) {
+  .VPContent.has-sidebar { padding-left: 0; }
+}
