@@ -156,6 +156,76 @@ html.dark .docs-header .desktop-docs-nav a:hover,
 html.dark .docs-header .desktop-docs-nav .active { color: #6fe0b5; border-color: #6fe0b5; }
 html.dark .header-actions button { color: #e7eee9; border-color: #465353; background: #202a2b; }
 
+.theme-toggle {
+  width: 52px;
+  height: 30px;
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 30px;
+  border: 1px solid #c8cbd0;
+  border-radius: 999px;
+  background: #f1f2f4;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px #172b3a35;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 8px;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  pointer-events: none;
+}
+
+.theme-toggle-sun { left: 7px; color: #5e6269; }
+.theme-toggle-moon { right: 7px; color: #747980; }
+.theme-toggle.is-dark .theme-toggle-track { border-color: #52625e; background: #273c36; }
+.theme-toggle.is-dark .theme-toggle-thumb { transform: translateX(22px); background: #b9ead4; }
+.theme-toggle.is-dark .theme-toggle-sun { color: #8ca69c; }
+.theme-toggle.is-dark .theme-toggle-moon { color: #173b30; }
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #62666b;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.github-link:hover,
+.github-link:focus-visible { color: var(--site-color-brand); transform: translateY(-1px); }
+.github-link svg { width: 24px; height: 24px; }
+html.dark .github-link { color: #c2cfca; }
+html.dark .github-link:hover,
+html.dark .github-link:focus-visible { color: #7fe3ba; }
+
 html.dark .hero-card { border-color: var(--home-color-card-border); background: radial-gradient(circle at 75% 7%, var(--home-color-hero-start) 0, var(--home-color-hero-mid) 46%, var(--home-color-hero-end) 100%); }
 html.dark .hero-card h1,
 html.dark .hero-card h2,
