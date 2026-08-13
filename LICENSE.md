@@ -6,7 +6,7 @@
 
 MIT License
 
-Copyright © 2019-2025 Caleb Porzio and contributors
+Copyright (c) 2019-2025 Caleb Porzio and contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30,4 +30,4 @@ SOFTWARE.
 
 本リポジトリで作成した日本語訳、サイト実装、および画像についても、特段の記載がない限り、上記MIT Licenseの条件で利用できます。
 
-Copyright © 2026 yama and contributors
+Copyright (c) 2026 yama and contributors
