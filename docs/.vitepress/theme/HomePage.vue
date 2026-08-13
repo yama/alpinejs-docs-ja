@@ -42,8 +42,7 @@ function handleMenuKeydown(event: KeyboardEvent) {
     <main class="home-main">
       <section class="hero-card">
         <div class="hero-copy"><p class="eyebrow">HTML に寄り添う、軽量な JavaScript</p><h1>Alpine.js <em>日本語ドキュメント</em></h1><h2>公式ドキュメントの非公式日本語翻訳サイトです。</h2><p>Alpine.js は、HTML に直接ふれることができる軽量な JavaScript フレームワークです。小さく始めて、必要なところにだけ使えます。</p><div class="hero-actions"><a class="button primary" href="/start-here">▶　ここから始める</a><a class="button secondary" href="https://alpinejs.dev/start-here">◉　原文を見る（英語）</a></div></div>
-        <img v-if="isDark" class="hero-image" src="/images/alpaca-hero-dark.jpg" alt="月明かりのアルプスの山あいに座るアルパカのイラスト">
-        <img v-else class="hero-image" src="/images/alpaca-hero.jpg" alt="アルプスの山あいに座るアルパカのイラスト">
+        <div class="hero-image" role="img" aria-label="アルプスの山あいに座るアルパカのイラスト" />
       </section>
       <section class="benefits" aria-label="Alpine.js の特徴">
         <article><span class="feature-icon green">ϟ</span><div><h2>高速で軽量</h2><p>約 10KB の小さなサイズ。軽快に読み込みます。</p></div></article><article><span class="feature-icon purple">&lt;/&gt;</span><div><h2>HTML ファースト</h2><p>特別なビルドは不要。いつもの HTML に書くだけ。</p></div></article><article><span class="feature-icon yellow">✚</span><div><h2>段階的に導入可能</h2><p>必要な部分だけに Alpine.js を追加。</p></div></article><article><span class="feature-icon blue">♥</span><div><h2>シンプルで楽しい</h2><p>学びやすく、使っていて気持ちよい DX 。</p></div></article>
