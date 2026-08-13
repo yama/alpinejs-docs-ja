@@ -413,9 +413,6 @@
   .benefits {
     grid-template-columns: 1fr;
   }
-  .directive-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .site-note {
     align-items: flex-start;
     flex-wrap: wrap;

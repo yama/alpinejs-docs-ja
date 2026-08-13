@@ -41,7 +41,7 @@ function handleMenuKeydown(event: KeyboardEvent) {
     </header>
     <main class="home-main">
       <section class="hero-card">
-        <div class="hero-copy"><p class="eyebrow">HTML に寄り添う、軽量な JavaScript</p><h1>Alpine.js <em>日本語ドキュメント</em></h1><h2>公式ドキュメントの非公式日本語翻訳サイトです。</h2><p>Alpine.js は、HTML に直接ふれることができる軽量な JavaScript フレームワークです。小さく始めて、必要なところにだけ使えます。</p><div class="hero-actions"><a class="button primary" href="/start-here">▶　ここから始める</a><a class="button secondary" href="https://alpinejs.dev/start-here">◉　公式サイト</a></div></div>
+        <div class="hero-copy"><p class="eyebrow">HTML に寄り添う、軽量な JavaScript</p><h1>Alpine.js <em>日本語ドキュメント</em></h1><h2>公式ドキュメントの非公式日本語翻訳サイトです。</h2><p>Alpine.js は、HTML に直接ふれることができる軽量な JavaScript フレームワークです。小さく始めて、必要なところにだけ使えます。</p><div class="hero-actions"><a class="button primary" href="/start-here">▶　ここから始める</a><a class="button secondary" href="https://alpinejs.dev/start-here">◉　英語原文</a></div></div>
         <div class="hero-image" role="img" aria-label="アルプスの山あいに座るアルパカのイラスト" />
       </section>
       <section class="benefits" aria-label="Alpine.js の特徴">
