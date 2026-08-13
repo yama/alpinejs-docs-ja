@@ -401,8 +401,8 @@
     margin-top: 14px;
   }
   .hero-card {
-    min-height: 470px;
-    padding: 31px 22px;
+    min-height: 0;
+    padding: 31px 22px 24px;
   }
   .hero-copy {
     width: 100%;
@@ -434,5 +434,10 @@
   .getting-started h2,
   .getting-started > p {
     grid-column: auto;
+  }
+}
+@media (max-width: 700px) {
+  .directive-cards {
+    grid-template-columns: 1fr;
   }
 }
