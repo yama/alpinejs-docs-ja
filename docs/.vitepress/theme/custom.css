@@ -248,6 +248,8 @@
   line-height: 1.55;
 }
 .home-grid {
+  width: min(100%, 960px);
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 30% 1fr;
   gap: 17px;
