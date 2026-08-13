@@ -1,23 +1,29 @@
 import { defineConfig } from 'vitepress'
 
 const siteUrl = 'https://alpinejs-docs-ja.kyms.jp'
+const siteTitle = 'Alpine.js 日本語ドキュメント'
+const siteDescription = 'Alpine.js公式ドキュメントの非公式日本語版'
 const ogpImageUrl = new URL('/images/ogp.png', siteUrl).toString()
 
 export default defineConfig({
   lang: 'ja',
-  title: 'Alpine.js 日本語ドキュメント',
-  description: 'Alpine.js公式ドキュメントの非公式日本語版',
+  title: siteTitle,
+  description: siteDescription,
   transformHead({ pageData }) {
     const pagePath = pageData.relativePath === 'index.md'
       ? '/'
       : `/${pageData.relativePath.replace(/\.md$/, '')}`
     const pageUrl = new URL(pagePath, siteUrl).toString()
-    const title = pageData.title || 'Alpine.js 日本語ドキュメント'
-    const description = pageData.description || 'Alpine.js公式ドキュメントの非公式日本語版'
+    const pageTitle = pageData.title || siteTitle
+    const title = pageData.relativePath === 'index.md'
+      ? siteTitle
+      : `${pageTitle} | ${siteTitle}`
+    const type = pageData.relativePath === 'index.md' ? 'website' : 'article'
+    const description = pageData.description || siteDescription
 
     return [
       ['meta', { property: 'og:title', content: title }],
-      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:type', content: type }],
       ['meta', { property: 'og:url', content: pageUrl }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:image', content: ogpImageUrl }],
