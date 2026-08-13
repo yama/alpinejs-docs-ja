@@ -91,13 +91,6 @@
   cursor: pointer;
 }
 
-.theme-button {
-  width: 47px;
-  height: 47px;
-  border-radius: var(--site-radius-button);
-  font-size: 21px;
-}
-
 .docs-menu-button,
 .menu-button {
   display: none;
