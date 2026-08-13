@@ -29,7 +29,7 @@
 .hero-card {
   overflow: hidden;
   min-height: 356px;
-  border: 1px solid #f0e9dc;
+  border: 1px solid var(--home-color-card-border);
   border-radius: 22px;
   position: relative;
   display: flex;
@@ -95,8 +95,8 @@
   background: var(--site-color-brand);
 }
 .alpine-home .button.secondary {
-  color: #27343b;
-  background: #fff;
+  color: var(--site-color-ink);
+  background: var(--site-color-surface);
 }
 .benefits {
   display: grid;
@@ -161,7 +161,11 @@
 }
 .getting-started {
   padding: 18px;
-  background: linear-gradient(135deg, #eff9ef, #e5f5e9);
+  background: linear-gradient(
+    135deg,
+    var(--home-color-started-start),
+    var(--home-color-started-end)
+  );
 }
 .getting-started h2 {
   margin: 2px 0 7px;
@@ -179,10 +183,10 @@
   gap: 3px;
   margin-top: 8px;
   padding: 10px 13px;
-  border: 1px solid #d6e6d7;
+  border: 1px solid var(--home-color-card-border);
   border-radius: var(--home-radius-control);
-  background: #fffefd;
-  color: #183b3b;
+  background: var(--home-color-card-surface);
+  color: var(--site-color-ink);
   text-decoration: none;
   font-size: 12px;
 }

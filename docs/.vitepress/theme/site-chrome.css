@@ -18,6 +18,8 @@
   --home-color-hero-start: #fffdf9;
   --home-color-hero-mid: #faf5e8;
   --home-color-hero-end: #f5eedf;
+  --home-color-started-start: #eff9ef;
+  --home-color-started-end: #e5f5e9;
 
   --site-radius-control: 8px;
   --site-radius-button: 50%;
@@ -131,6 +133,8 @@ html.dark {
   --home-color-hero-start: #30443a;
   --home-color-hero-mid: #263630;
   --home-color-hero-end: #1c2825;
+  --home-color-started-start: #1d3830;
+  --home-color-started-end: #20302c;
 
   color-scheme: dark;
 }
@@ -152,7 +156,7 @@ html.dark .docs-header .desktop-docs-nav a:hover,
 html.dark .docs-header .desktop-docs-nav .active { color: #6fe0b5; border-color: #6fe0b5; }
 html.dark .header-actions button { color: #e7eee9; border-color: #465353; background: #202a2b; }
 
-html.dark .hero-card { border-color: #3b4945; background: radial-gradient(circle at 75% 7%, #30443a 0, #263630 46%, #1c2825 100%); }
+html.dark .hero-card { border-color: var(--home-color-card-border); background: radial-gradient(circle at 75% 7%, var(--home-color-hero-start) 0, var(--home-color-hero-mid) 46%, var(--home-color-hero-end) 100%); }
 html.dark .hero-card h1,
 html.dark .hero-card h2,
 html.dark .hero-copy > p:not(.eyebrow),
@@ -166,8 +170,8 @@ html.dark .eyebrow,
 html.dark .hero-card h1 em { color: #63d6ad; }
 html.dark .section-heading a { color: #7cc9e8; }
 html.dark .benefits article,
-html.dark .directive-section { border-color: #3b4945; background: #1d2728; }
-html.dark .getting-started { background: linear-gradient(135deg, #1d3830, #20302c); }
+html.dark .directive-section { border-color: var(--home-color-card-border); background: var(--home-color-card-surface); }
+html.dark .getting-started { background: linear-gradient(135deg, var(--home-color-started-start), var(--home-color-started-end)); }
 html.dark .getting-started a,
 html.dark .directive-cards a { border-color: #43534f; color: #e7eee9; background: #263132; }
 html.dark .directive-cards code { color: #b9d5ca; background: #182021; }
