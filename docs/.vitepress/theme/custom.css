@@ -1,8 +1,5 @@
 /* Homepage-only layout and components. Shared chrome lives in site-chrome.css. */
 :root {
-  --home-color-card-border: #eee8df;
-  --home-color-card-surface: #fffdfa;
-  --home-color-muted: #596772;
   --home-radius-card: 17px;
   --home-radius-control: 10px;
   --home-space-section: 17px;
@@ -39,9 +36,9 @@
   padding: 48px 37px;
   background: radial-gradient(
     circle at 75% 7%,
-    #fffdf9 0,
-    #faf5e8 46%,
-    #f5eedf 100%
+    var(--home-color-hero-start) 0,
+    var(--home-color-hero-mid) 46%,
+    var(--home-color-hero-end) 100%
   );
 }
 .hero-copy {

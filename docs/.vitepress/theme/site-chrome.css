@@ -3,8 +3,6 @@
   --site-content-max-width: 1088px;
   --site-content-gutter: 48px;
   --site-header-height: 86px;
-  --site-breakpoint-mobile: 1100px;
-
   --site-color-brand: #078b68;
   --site-color-brand-strong: #0da477;
   --site-color-ink: #172b3a;
@@ -13,6 +11,13 @@
   --site-color-border: #eae5da;
   --site-color-surface: #fff;
   --site-color-page: #fbfaf6;
+
+  --home-color-card-surface: #fffdfa;
+  --home-color-card-border: #eee8df;
+  --home-color-muted: #596772;
+  --home-color-hero-start: #fffdf9;
+  --home-color-hero-mid: #faf5e8;
+  --home-color-hero-end: #f5eedf;
 
   --site-radius-control: 8px;
   --site-radius-button: 50%;
@@ -120,6 +125,13 @@ html.dark {
   --site-color-border: #303b3c;
   --site-color-surface: #202a2b;
   --site-color-page: #141a1b;
+  --home-color-card-surface: #1d2728;
+  --home-color-card-border: #3b4945;
+  --home-color-muted: #d8e1dd;
+  --home-color-hero-start: #30443a;
+  --home-color-hero-mid: #263630;
+  --home-color-hero-end: #1c2825;
+
   color-scheme: dark;
 }
 
