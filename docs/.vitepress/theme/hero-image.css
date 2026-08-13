@@ -7,6 +7,11 @@
   object-position: center;
 }
 
+.hero-image-dark { display: none; }
+
+html.dark .hero-image-light { display: none; }
+html.dark .hero-image-dark { display: block; }
+
 .hero-copy {
   z-index: 1;
 }

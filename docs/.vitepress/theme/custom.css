@@ -136,9 +136,9 @@
   padding: 48px 37px;
   background: radial-gradient(
     circle at 75% 7%,
-    #fffdf9 0,
-    #faf5e8 46%,
-    #f5eedf 100%
+    var(--home-color-hero-start) 0,
+    var(--home-color-hero-mid) 46%,
+    var(--home-color-hero-end) 100%
   );
 }
 .hero-copy {
