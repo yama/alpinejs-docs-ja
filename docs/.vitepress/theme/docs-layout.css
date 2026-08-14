@@ -27,7 +27,13 @@
   backdrop-filter: blur(16px);
 }
 
-.VPNavBarTitle .title { color: var(--site-color-ink); font-weight: 720; }
+.VPNavBarTitle .title {
+  color: var(--site-color-ink);
+  font-family: var(--vp-font-family-base);
+  font-size: 26px;
+  font-weight: 760;
+  letter-spacing: -0.04em;
+}
 .VPSidebar { border-right-color: var(--site-color-border); background: #f8f5ed; }
 .VPSidebarItem .text { color: #50606a; }
 .VPSidebarItem.level-0 > .item > .text { color: var(--site-color-brand); font-weight: 760; }
@@ -46,6 +52,10 @@
 @media (max-width: 959px) {
   :root { --vp-nav-height: 64px; }
   .VPNav { position: sticky !important; top: 0; }
+}
+
+@media (max-width: 1100px) {
+  .VPNavBarTitle .title { font-size: 18px; }
 }
 
 html.dark .VPSidebar { border-color: #303b3c; background: #1b2425; }
