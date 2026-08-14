@@ -12,6 +12,7 @@ const { headers } = useLocalNav()
 const nav = ref<HTMLElement | null>(null)
 const outlineOpen = ref(false)
 const menuOpen = ref(false)
+let menuButtonObserver: MutationObserver | undefined
 
 const pageItems = computed(() => {
   const groups = Array.isArray(theme.value.sidebar) ? theme.value.sidebar as SidebarGroup[] : []
@@ -25,15 +26,23 @@ const next = computed(() => currentIndex.value >= 0 ? pageItems.value[currentInd
 function toggleMenu() {
   closeOutline()
   const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
-  const isOpen = menuButton?.getAttribute('aria-expanded') === 'true'
+  if (!menuButton) {
+    menuOpen.value = false
+    return
+  }
+
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
 
   if (isOpen) {
     document.querySelector<HTMLElement>('.VPBackdrop')?.click()
   } else {
-    menuButton?.click()
+    menuButton.click()
   }
+}
 
-  menuOpen.value = !isOpen
+function syncMenuState() {
+  const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
+  menuOpen.value = menuButton?.getAttribute('aria-expanded') === 'true'
 }
 
 function closeOutline() {
@@ -58,11 +67,18 @@ watch(() => route.path, () => {
 onMounted(() => {
   document.addEventListener('pointerdown', handlePointerDown)
   document.addEventListener('keydown', handleKeydown)
+  syncMenuState()
+  const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
+  if (menuButton) {
+    menuButtonObserver = new MutationObserver(syncMenuState)
+    menuButtonObserver.observe(menuButton, { attributes: true, attributeFilter: ['aria-expanded'] })
+  }
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('pointerdown', handlePointerDown)
   document.removeEventListener('keydown', handleKeydown)
+  menuButtonObserver?.disconnect()
 })
 </script>
 
