@@ -11,6 +11,8 @@ const route = useRoute()
 const { headers } = useLocalNav()
 const nav = ref<HTMLElement | null>(null)
 const outlineOpen = ref(false)
+const menuOpen = ref(false)
+let menuButtonObserver: MutationObserver | undefined
 
 const pageItems = computed(() => {
   const groups = Array.isArray(theme.value.sidebar) ? theme.value.sidebar as SidebarGroup[] : []
@@ -23,7 +25,24 @@ const next = computed(() => currentIndex.value >= 0 ? pageItems.value[currentInd
 
 function toggleMenu() {
   closeOutline()
-  document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')?.click()
+  const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
+  if (!menuButton) {
+    menuOpen.value = false
+    return
+  }
+
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
+
+  if (isOpen) {
+    document.querySelector<HTMLElement>('.VPBackdrop')?.click()
+  } else {
+    menuButton.click()
+  }
+}
+
+function syncMenuState() {
+  const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
+  menuOpen.value = menuButton?.getAttribute('aria-expanded') === 'true'
 }
 
 function closeOutline() {
@@ -40,22 +59,32 @@ function handleKeydown(event: KeyboardEvent) {
   if (event.key === 'Escape') closeOutline()
 }
 
-watch(() => route.path, closeOutline)
+watch(() => route.path, () => {
+  closeOutline()
+  menuOpen.value = false
+})
 
 onMounted(() => {
   document.addEventListener('pointerdown', handlePointerDown)
   document.addEventListener('keydown', handleKeydown)
+  syncMenuState()
+  const menuButton = document.querySelector<HTMLButtonElement>('.VPLocalNav .menu')
+  if (menuButton) {
+    menuButtonObserver = new MutationObserver(syncMenuState)
+    menuButtonObserver.observe(menuButton, { attributes: true, attributeFilter: ['aria-expanded'] })
+  }
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('pointerdown', handlePointerDown)
   document.removeEventListener('keydown', handleKeydown)
+  menuButtonObserver?.disconnect()
 })
 </script>
 
 <template>
   <nav ref="nav" class="mobile-bottom-nav" aria-label="ページナビゲーション">
-    <button type="button" aria-label="サイドメニューを開く" @click="toggleMenu">
+    <button type="button" :aria-label="menuOpen ? 'サイドメニューを閉じる' : 'サイドメニューを開く'" aria-controls="VPSidebarNav" :aria-expanded="menuOpen" @click="toggleMenu">
       <span aria-hidden="true">☰</span>
       <span>メニュー</span>
     </button>
