@@ -49,9 +49,17 @@
   transform: translateX(0) !important;
 }
 
+/* Make the inline icon wrapper participate in flex centering. */
+.VPNavBarHamburger .container { display: block; }
+
 @media (max-width: 959px) {
   :root { --vp-nav-height: 64px; }
   .VPNav { position: sticky !important; top: 0; }
+}
+
+@media (max-width: 767px) {
+  /* VitePress sets this button to block with !important at mobile widths. */
+  html body .VPNavBar .VPNavBarHamburger { display: flex !important; }
 }
 
 @media (max-width: 1100px) {
