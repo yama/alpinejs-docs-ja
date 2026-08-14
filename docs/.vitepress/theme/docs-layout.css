@@ -57,6 +57,7 @@ html.dark .VPSidebarItem.is-active > .item > .link { color: #8be8c5; background:
 
 @media (max-width: 959px) {
   .VPLocalNav { display: none !important; }
+  .VPDocFooter .prev-next { display: none; }
 
   .mobile-bottom-nav {
     position: fixed;
