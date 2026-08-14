@@ -26,6 +26,9 @@
   width: min(var(--site-content-max-width), calc(100% - var(--site-content-gutter)));
   margin: 22px auto 38px;
 }
+@media (min-width: 960px) {
+  .alpine-home .home-main { padding-top: var(--vp-nav-height); }
+}
 .hero-card {
   overflow: hidden;
   min-height: 356px;
