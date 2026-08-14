@@ -33,6 +33,16 @@
 .VPSidebarItem.level-0 > .item > .text { color: var(--site-color-brand); font-weight: 760; }
 .VPSidebarItem.is-active > .item > .link { border-radius: 7px; color: var(--site-color-brand); background: #e8f5ec; }
 
+/* Keep the closed hamburger icon's three strokes the same visible length. */
+.VPNavBarHamburger:not(.active) .top,
+.VPNavBarHamburger:not(.active) .middle,
+.VPNavBarHamburger:not(.active) .bottom,
+.VPNavBarHamburger:not(.active):hover .top,
+.VPNavBarHamburger:not(.active):hover .middle,
+.VPNavBarHamburger:not(.active):hover .bottom {
+  transform: translateX(0) !important;
+}
+
 @media (max-width: 959px) {
   :root { --vp-nav-height: 64px; }
   .VPNav { position: sticky !important; top: 0; }
