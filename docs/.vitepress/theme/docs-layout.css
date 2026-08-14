@@ -1,7 +1,3 @@
-.VPDoc .content {
-  padding-top: 24px;
-}
-
 .Layout,
 .VPContent,
 .VPDoc { background: var(--site-color-page); }
