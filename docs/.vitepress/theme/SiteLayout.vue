@@ -3,11 +3,13 @@ import { useRoute } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import HomePage from './HomePage.vue'
 import MobileBottomNav from './MobileBottomNav.vue'
+import ScrollChrome from './ScrollChrome.vue'
 
 const route = useRoute()
 </script>
 
 <template>
+  <ScrollChrome />
   <HomePage v-if="route.path === '/'" />
   <DefaultTheme.Layout v-else>
     <template #doc-after>
