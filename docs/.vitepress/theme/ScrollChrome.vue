@@ -46,16 +46,18 @@ onMounted(() => {
   mediaQuery = window.matchMedia('(max-width: 959px)')
   previousScrollY = window.scrollY
   mediaQuery.addEventListener('change', handleViewportChange)
+  window.addEventListener('resize', handleViewportChange)
   window.addEventListener('scroll', handleScroll, { passive: true })
   document.addEventListener('focusin', showChrome)
-  document.addEventListener('pointerdown', showChrome)
+  document.addEventListener('click', showChrome)
 })
 
 onBeforeUnmount(() => {
   mediaQuery?.removeEventListener('change', handleViewportChange)
+  window.removeEventListener('resize', handleViewportChange)
   window.removeEventListener('scroll', handleScroll)
   document.removeEventListener('focusin', showChrome)
-  document.removeEventListener('pointerdown', showChrome)
+  document.removeEventListener('click', showChrome)
   setHidden(false)
 })
 </script>
