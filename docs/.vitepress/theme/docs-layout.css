@@ -52,6 +52,22 @@
 @media (max-width: 959px) {
   :root { --vp-nav-height: 64px; }
   .VPNav { position: sticky !important; top: 0; }
+
+  .VPNav,
+  .mobile-bottom-nav {
+    transition: transform .22s ease, visibility .22s ease;
+    will-change: transform;
+  }
+
+  html.site-chrome-hidden .VPNav {
+    visibility: hidden;
+    transform: translateY(-100%);
+  }
+
+  html.site-chrome-hidden .mobile-bottom-nav {
+    visibility: hidden;
+    transform: translateY(100%);
+  }
 }
 
 @media (max-width: 1100px) {
